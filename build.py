@@ -13,6 +13,7 @@ PAGES = [
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
     ("mentions-legales.html", "Mentions légales"),
+    ("forge-confidentialite.html", "Forge — Confidentialité"),
 ]
 
 HEAD = """<!doctype html>
@@ -70,7 +71,7 @@ FOOT = """
 def nav_for(current: str) -> str:
     out = []
     for slug, label in PAGES:
-        if slug == "mentions-legales.html":
+        if slug in ("mentions-legales.html", "forge-confidentialite.html"):
             continue
         cur = ' aria-current="page"' if slug == current else ""
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
@@ -423,10 +424,118 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 </section>
 """, "Informations légales d'IE DIGITAL : éditeur, hébergement, propriété intellectuelle et données personnelles.")
 
+# --------------------------------------------- Forge · confidentialité
+# Page exigée par Apple pour la soumission de l'application Forge Yourself.
+# Son URL doit rester stable : elle est déclarée dans App Store Connect, et la
+# changer casse la fiche produit.
+BODIES["forge-confidentialite.html"] = ("""
+<p class="eyebrow">Forge Yourself</p>
+<h1>Politique de confidentialité</h1>
+<p class="lede">Forge Yourself ne collecte aucune donnée personnelle. Cette page
+dit ce que l'application fait de vos informations, et la réponse est courte :
+elle les garde sur votre téléphone.</p>
+
+<section>
+  <h2>En résumé</h2>
+  <ul>
+    <li>Aucun compte à créer. Aucune adresse e-mail demandée.</li>
+    <li>Aucune donnée transmise à IE DIGITAL, ni à un tiers.</li>
+    <li>Aucun traceur, aucune publicité, aucun outil de mesure d'audience.</li>
+    <li>Vos séances, vos charges et vos mensurations restent dans la mémoire de
+    votre appareil.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Les données que l'application manipule</h2>
+  <p>Forge Yourself enregistre, <strong>sur votre appareil uniquement</strong>,
+  ce que vous y saisissez : votre prénom ou le nom que vous donnez à votre
+  profil, vos réglages d'entraînement (niveau, objectif, matériel, jours), vos
+  séances et les charges soulevées, vos éventuels relevés de poids et de tour de
+  taille, et vos notes de séance.</p>
+  <p>Ces informations ne quittent jamais votre téléphone, sauf dans les deux cas
+  ci-dessous, que vous déclenchez vous-même.</p>
+</section>
+
+<section>
+  <h2>Les deux cas où des données sortent de l'appareil</h2>
+  <dl class="facts">
+    <dt>La sauvegarde iCloud</dt>
+    <dd>Si vous l'activez, vos données de profil sont synchronisées par
+    <strong>iCloud</strong>, dans votre espace privé. IE DIGITAL n'y a pas accès
+    et ne peut pas les lire. Le traitement relève alors de la politique de
+    confidentialité d'Apple.</dd>
+    <dt>L'export</dt>
+    <dd>À votre demande, l'application produit un fichier contenant vos données,
+    que vous choisissez d'enregistrer ou de partager. Ce que ce fichier devient
+    ensuite ne dépend que de vous.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Santé</h2>
+  <p>Si vous l'autorisez, Forge Yourself peut écrire vos séances terminées dans
+  l'application <strong>Santé</strong> d'Apple, et y lire votre poids. Cette
+  autorisation se donne et se retire à tout moment dans les réglages de votre
+  iPhone.</p>
+  <p>Les données de santé qui entrent dans l'application <strong>ne sont jamais
+  utilisées à des fins publicitaires ni transmises à qui que ce soit</strong>,
+  conformément à la règle 5.1.3 des directives de l'App Store.</p>
+</section>
+
+<section>
+  <h2>Abonnement</h2>
+  <p>Les achats sont traités par <strong>Apple</strong>. IE DIGITAL ne reçoit ni
+  votre moyen de paiement, ni votre identifiant Apple, ni votre adresse. L'accès
+  à l'application est vérifié sur le reçu d'achat stocké localement sur votre
+  appareil.</p>
+</section>
+
+<section>
+  <h2>Vos droits</h2>
+  <p>Le règlement général sur la protection des données vous donne un droit
+  d'accès, de rectification, d'effacement, de limitation, d'opposition et de
+  portabilité sur vos données personnelles.</p>
+  <p>Comme IE DIGITAL ne détient aucune de vos données, ces droits s'exercent
+  directement dans l'application : <strong>l'export</strong> assure la
+  portabilité, et la <strong>suppression d'un profil</strong> — ou la
+  désinstallation — efface tout. IE DIGITAL ne peut ni retrouver ni restaurer
+  des données supprimées, parce qu'il n'en a jamais eu de copie.</p>
+  <p>Pour toute question : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>.
+  Vous pouvez également introduire une réclamation auprès de la
+  <a href="https://www.cnil.fr" rel="noopener">CNIL</a>.</p>
+</section>
+
+<section>
+  <h2>Durée de conservation</h2>
+  <p>Vos données restent sur votre appareil aussi longtemps que vous y laissez
+  l'application installée. Sans abonnement actif, Forge Yourself ne conserve rien
+  au-delà de la journée en cours : les séances composées à la main ne sont pas
+  reportées au lendemain.</p>
+</section>
+
+<section>
+  <h2>Enfants</h2>
+  <p>Forge Yourself n'est pas destinée aux enfants de moins de treize ans et ne
+  leur demande aucune information.</p>
+</section>
+
+<section>
+  <h2>Modifications</h2>
+  <p>Toute évolution de cette politique sera publiée sur cette page, avec sa date
+  d'entrée en vigueur. <strong>Version du 21 septembre 2026.</strong></p>
+</section>
+""", "Politique de confidentialité de l'application Forge Yourself : aucune donnée collectée, tout reste sur votre appareil.")
+
 
 for slug, label in PAGES:
     body, desc = BODIES[slug]
-    title = "IE DIGITAL" if slug == "index.html" else f"{label} — IE DIGITAL"
+    if slug == "index.html":
+        title = "IE DIGITAL"
+    elif slug == "forge-confidentialite.html":
+        title = "Confidentialité — Forge Yourself"
+    else:
+        title = f"{label} — IE DIGITAL"
     (OUT / slug).write_text(render(slug, title, desc, body), encoding="utf-8")
     print(f"{slug:24} {label}")
 
