@@ -48,7 +48,7 @@ HEAD = """<!doctype html>
 {nav}
   </nav>
   <div class="rail-foot">
-    <p>Conseil et conception<br>de produits digitaux</p>
+    <p>Conseil produit et<br>développement d'apps mobiles</p>
     <p>Lille&nbsp;&middot;&nbsp;{mail}</p>
   </div>
 </header>
@@ -89,32 +89,35 @@ BODIES = {}
 
 # ------------------------------------------------------------------ accueil
 BODIES["index.html"] = ("""
-<p class="eyebrow">Conseil et conception de produits digitaux</p>
-<h1>Vos clients abandonnent le tunnel. La question est de savoir où, et pourquoi.</h1>
-<p class="lede">IE DIGITAL intervient sur les parcours d'achat à fort volume&nbsp;: panier,
-checkout, paiement, retours, marketplace. Un renfort produit senior, pas une agence
-au forfait.</p>
+<p class="eyebrow">Conseil produit &middot; Développement d'applications mobiles</p>
+<h1>Décider quoi construire, puis le construire.</h1>
+<p class="lede">IE DIGITAL exerce deux métiers qui se tiennent&nbsp;: le conseil produit
+sur les parcours d'achat à fort volume, et le développement d'applications mobiles, de
+la première maquette à la publication sur l'App Store.</p>
 
-<p>La plupart des chantiers e-commerce échouent au même endroit&nbsp;: on refond une
-interface sans avoir établi ce qui fait réellement décrocher l'acheteur. Un taux de
-conversion se déplace de quelques dizaines de points de base, rarement par un
+<p>Côté conseil, j'interviens là où se joue la conversion&nbsp;: panier, checkout,
+paiement, retours, marketplace. Un taux de conversion se déplace rarement par un
 redesign, souvent par une contrainte levée au bon endroit — un moyen de paiement
 absent, une authentification forte mal posée, une adresse qu'on demande deux fois.</p>
 
-<p>Ce que je fais&nbsp;: établir où ça décroche, décider quoi construire, et rester
-jusqu'à ce que ce soit en production.</p>
+<p>Côté application, je conçois et je développe&nbsp;: parcours, interface, code natif
+iOS en Swift et SwiftUI, applications web, abonnements intégrés, publication et suivi.
+La même personne tient le cadrage et le code, ce qui évite de perdre en route ce qui
+avait été décidé.</p>
 
-<p><a class="cta" href="contact.html">Parler d'un chantier</a></p>
+<p><a class="cta" href="contact.html">Parler d'un projet</a></p>
 
 <section>
   <h2>Trois façons de travailler ensemble</h2>
   <div class="stack">
     <div class="entry">
       <span class="kicker">Cadrage</span>
-      <h3>Un diagnostic de parcours, en deux à quatre semaines</h3>
-      <p>Lecture des données d'entonnoir, entretiens avec les équipes, revue du
-      parcours réel sur mobile et desktop. Livrable&nbsp;: les points de décrochage
-      classés par enjeu, et ce qu'il faut traiter d'abord.</p>
+      <h3>Un diagnostic, en deux à quatre semaines</h3>
+      <p>Sur un parcours existant&nbsp;: lecture des données d'entonnoir, entretiens avec
+      les équipes, revue du parcours réel sur mobile et desktop. Sur une idée
+      d'application&nbsp;: public visé, périmètre de la première version, modèle
+      économique. Livrable&nbsp;: ce qu'il faut traiter ou construire d'abord, et
+      pourquoi.</p>
     </div>
     <div class="entry">
       <span class="kicker">Renfort produit</span>
@@ -124,10 +127,12 @@ jusqu'à ce que ce soit en production.</p>
       Deux à trois jours par semaine, sur plusieurs mois.</p>
     </div>
     <div class="entry">
-      <span class="kicker">Conception</span>
-      <h3>De l'idée à l'application livrée</h3>
-      <p>Cadrage, parcours, interface et développement d'un produit digital complet,
-      quand vous n'avez pas d'équipe interne à mobiliser.</p>
+      <span class="kicker">Application mobile</span>
+      <h3>Votre application iOS, de la maquette à l'App Store</h3>
+      <p>Maquettes validées avant la première ligne de code, développement natif,
+      achats intégrés et abonnements, conformité aux règles de l'App Store et au RGPD,
+      publication. Pour un produit neuf, ou quand vous n'avez pas d'équipe interne à
+      mobiliser.</p>
     </div>
   </div>
 </section>
@@ -135,11 +140,11 @@ jusqu'à ce que ce soit en production.</p>
 <section>
   <h2>Ce que ce n'est pas</h2>
   <p class="note">Ni une agence créative, ni une ESN qui facture des jours-hommes. Pas
-  de refonte au forfait vendue avant le diagnostic, pas d'équipe junior placée sous un
-  nom senior. Si le problème que vous décrivez ne relève pas de mon domaine, je vous
-  le dis et je m'arrête là.</p>
+  de refonte vendue avant le diagnostic, pas d'application chiffrée avant d'avoir été
+  cadrée, pas d'équipe junior placée sous un nom senior. Si le problème que vous
+  décrivez ne relève pas de mon domaine, je vous le dis et je m'arrête là.</p>
 </section>
-""", "Renfort produit senior sur les parcours d'achat e-commerce : panier, checkout, paiement, retours, marketplace.")
+""", "Conseil produit sur les parcours d'achat et développement d'applications mobiles iOS, de la maquette à l'App Store.")
 
 # --------------------------------------------------------------- expertises
 BODIES["expertises.html"] = ("""
