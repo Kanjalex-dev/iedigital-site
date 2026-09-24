@@ -360,3 +360,35 @@ ul.plain li { margin-bottom: 8px; }
 .foot a { color: var(--ink-3); }
 .foot a:hover { color: var(--ink); }
 .foot p { margin: 0 0 4px; }
+
+/* ---- Accueil à deux métiers (24/09) ---- */
+/* Correctifs de conformité : cibles 44px, texte 13px minimum */
+.wordmark { min-height: 44px; }
+.rail { align-items: center; }
+.rail nav { gap: 0 18px; }
+.rail nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
+@media (max-width: 959px) { .rail { position: static; } }
+@media (min-width: 960px) {
+  .rail { align-items: stretch; }
+  .rail nav { gap: 0; }
+  .rail nav a { padding: 0; }
+  .rail-foot { font-size: var(--s-1); }
+  .rail-foot p { margin: 0 0 10px; }
+}
+.foot a { display: inline-flex; align-items: center; min-height: 44px; }
+.foot .legal { margin: 0; }
+.more { display: inline-flex; align-items: center; min-height: 44px;
+  font-family: var(--mono); font-size: var(--s-1); letter-spacing: 0.02em; }
+section[id] { scroll-margin-top: 24px; }
+.facts + .note { margin-top: 28px; }
+
+/* Sommaire des deux métiers : des filets, pas des cartes, pas de numéros */
+.index { list-style: none; margin: 28px 0 32px; padding: 0; border-top: 1px solid var(--rule); }
+.index li { border-bottom: 1px solid var(--rule); }
+.index a { display: flex; flex-direction: column; gap: 2px; min-height: 44px;
+  padding: 14px 0; color: var(--ink); text-decoration: none; }
+.index .t { font-family: var(--display); font-size: var(--s1); font-weight: 600;
+  line-height: 1.25; letter-spacing: -0.012em; }
+.index .d { font-family: var(--mono); font-size: var(--s-1); line-height: 1.5; color: var(--ink-2); }
+.index a:hover .t { color: var(--accent-ink); text-decoration: underline;
+  text-decoration-thickness: 1px; text-underline-offset: 4px; }

@@ -8,7 +8,8 @@ MAIL = "contact@iedigital.fr"
 
 PAGES = [
     ("index.html", "Accueil"),
-    ("expertises.html", "Expertises"),
+    ("expertises.html", "Conseil produit"),
+    ("applications.html", "Applications"),
     ("methode.html", "Méthode"),
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
@@ -48,8 +49,8 @@ HEAD = """<!doctype html>
 {nav}
   </nav>
   <div class="rail-foot">
-    <p>Conseil produit et<br>développement d'apps mobiles</p>
-    <p>Lille&nbsp;&middot;&nbsp;{mail}</p>
+    <p>Conseil produit<br>Applications mobiles</p>
+    <p>Lille<br>{mail}</p>
   </div>
 </header>
 <main>
@@ -58,7 +59,8 @@ HEAD = """<!doctype html>
 
 FOOT = """
 <footer class="foot">
-  <p>IE DIGITAL &middot; <a href="mentions-legales.html">Mentions légales</a> &middot; <a href="contact.html">Contact</a></p>
+  <p class="legal">IE DIGITAL, SARL &middot; SIREN 822&nbsp;744&nbsp;116</p>
+  <p><a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> &middot; <a href="mentions-legales.html">Mentions légales</a></p>
 </footer>
 </article>
 </main>
@@ -71,7 +73,7 @@ FOOT = """
 def nav_for(current: str) -> str:
     out = []
     for slug, label in PAGES:
-        if slug in ("mentions-legales.html", "forge-confidentialite.html"):
+        if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html"):
             continue
         cur = ' aria-current="page"' if slug == current else ""
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
@@ -89,34 +91,36 @@ BODIES = {}
 
 # ------------------------------------------------------------------ accueil
 BODIES["index.html"] = ("""
-<p class="eyebrow">Conseil produit &middot; Développement d'applications mobiles</p>
-<h1>Décider quoi construire, puis le construire.</h1>
-<p class="lede">IE DIGITAL exerce deux métiers qui se tiennent&nbsp;: le conseil produit
-sur les parcours d'achat à fort volume, et le développement d'applications mobiles, de
-la première maquette à la publication sur l'App Store.</p>
+<p class="eyebrow">IE DIGITAL &middot; Lille &middot; depuis 2016</p>
+<h1>Conseil produit.<br>Développement d'applications mobiles.</h1>
+<p class="lede">Deux métiers qui se tiennent&nbsp;: décider quoi construire, puis le
+construire. Celui qui vous répond est celui qui fait le travail.</p>
 
-<p>Côté conseil, j'interviens là où se joue la conversion&nbsp;: panier, checkout,
-paiement, retours, marketplace. Un taux de conversion se déplace rarement par un
-redesign, souvent par une contrainte levée au bon endroit — un moyen de paiement
-absent, une authentification forte mal posée, une adresse qu'on demande deux fois.</p>
-
-<p>Côté application, je conçois et je développe&nbsp;: parcours, interface, code natif
-iOS en Swift et SwiftUI, applications web, abonnements intégrés, publication et suivi.
-La même personne tient le cadrage et le code, ce qui évite de perdre en route ce qui
-avait été décidé.</p>
+<ul class="index">
+  <li><a href="#conseil">
+    <span class="t">Conseil produit</span>
+    <span class="d">Parcours d'achat e-commerce&nbsp;: panier, checkout, paiement, retours, marketplace</span>
+  </a></li>
+  <li><a href="#applications">
+    <span class="t">Développement d'applications mobiles</span>
+    <span class="d">iOS natif en Swift et SwiftUI, de la maquette à l'App Store</span>
+  </a></li>
+</ul>
 
 <p><a class="cta" href="contact.html">Parler d'un projet</a></p>
 
-<section>
-  <h2>Trois façons de travailler ensemble</h2>
+<section id="conseil">
+  <h2>Conseil produit</h2>
+  <p>J'interviens là où se joue la conversion&nbsp;: panier, checkout, paiement, retours,
+  marketplace. Un taux de conversion se déplace rarement par un redesign, souvent par
+  une contrainte levée au bon endroit — un moyen de paiement absent, une
+  authentification forte mal posée, une adresse qu'on demande deux fois.</p>
   <div class="stack">
     <div class="entry">
       <span class="kicker">Cadrage</span>
       <h3>Un diagnostic, en deux à quatre semaines</h3>
-      <p>Sur un parcours existant&nbsp;: lecture des données d'entonnoir, entretiens avec
-      les équipes, revue du parcours réel sur mobile et desktop. Sur une idée
-      d'application&nbsp;: public visé, périmètre de la première version, modèle
-      économique. Livrable&nbsp;: ce qu'il faut traiter ou construire d'abord, et
+      <p>Lecture des données d'entonnoir, entretiens avec les équipes, revue du parcours
+      réel sur mobile et desktop. Livrable&nbsp;: ce qu'il faut traiter d'abord, et
       pourquoi.</p>
     </div>
     <div class="entry">
@@ -126,15 +130,34 @@ avait été décidé.</p>
       les spécifications, j'arbitre avec la tech et je suis la mise en production.
       Deux à trois jours par semaine, sur plusieurs mois.</p>
     </div>
-    <div class="entry">
-      <span class="kicker">Application mobile</span>
-      <h3>Votre application iOS, de la maquette à l'App Store</h3>
-      <p>Maquettes validées avant la première ligne de code, développement natif,
-      achats intégrés et abonnements, conformité aux règles de l'App Store et au RGPD,
-      publication. Pour un produit neuf, ou quand vous n'avez pas d'équipe interne à
-      mobiliser.</p>
-    </div>
   </div>
+  <p><a class="more" href="expertises.html">Checkout, paiement, retours&nbsp;: le détail</a></p>
+</section>
+
+<section id="applications">
+  <h2>Développement d'applications mobiles</h2>
+  <p>IE DIGITAL conçoit, développe et publie des applications iOS natives. Je prends le
+  projet de l'idée à l'App Store, pour un produit neuf ou quand vous n'avez pas d'équipe
+  mobile à mobiliser. Je développe aussi des applications web quand le besoin s'y
+  prête.</p>
+  <dl class="facts">
+    <div><dt>Cadrage et maquettes</dt><dd>Public visé, périmètre de la première version,
+    modèle économique. Maquettes validées avant la première ligne de code.</dd></div>
+    <div><dt>Développement</dt><dd>iOS natif, en Swift et SwiftUI.</dd></div>
+    <div><dt>Achats intégrés</dt><dd>Abonnements et achats in-app avec StoreKit, écrans
+    d'abonnement conformes aux règles d'Apple.</dd></div>
+    <div><dt>Conformité</dt><dd>Directives de l'App Store, RGPD, politique de
+    confidentialité et étiquette de confidentialité de la fiche App Store.</dd></div>
+    <div><dt>Publication</dt><dd>Fiche App Store, soumission, échanges avec l'équipe de
+    revue d'Apple.</dd></div>
+    <div><dt>Maintenance</dt><dd>Mises à jour pour les nouvelles versions d'iOS,
+    corrections, évolutions.</dd></div>
+  </dl>
+  <p class="note">Application en cours de développement&nbsp;:
+  <strong>Forge Yourself</strong>, application iOS de musculation, écrite en SwiftUI,
+  avec abonnement intégré, liaison avec l'app Santé et aucune donnée collectée. Elle
+  n'est pas encore publiée&nbsp;; elle le sera par IE DIGITAL.</p>
+  <p><a class="more" href="applications.html">Le détail de l'offre</a></p>
 </section>
 
 <section>
@@ -148,7 +171,7 @@ avait été décidé.</p>
 
 # --------------------------------------------------------------- expertises
 BODIES["expertises.html"] = ("""
-<p class="eyebrow">Expertises</p>
+<p class="eyebrow">Conseil produit</p>
 <h1>Le parcours d'achat, bout en bout</h1>
 <p class="lede">Le cœur du métier est là&nbsp;: tout ce qui se passe entre le moment où
 un client décide d'acheter et celui où la commande est livrée, payée et parfois
@@ -211,6 +234,48 @@ retournée.</p>
   j'interviens.</p>
 </section>
 """, "Checkout, paiement, panier, retours et marketplace : les domaines d'intervention d'IE DIGITAL sur les parcours d'achat.")
+
+# ------------------------------------------------------------- applications
+BODIES["applications.html"] = ("""
+<p class="eyebrow">Applications mobiles</p>
+<h1>Développement d'applications iOS</h1>
+<p class="lede">IE DIGITAL conçoit, développe et publie des applications iOS natives,
+de la première maquette à la fiche App Store, puis les maintient.</p>
+
+<section>
+  <h2>Ce qui est livré</h2>
+  <dl class="facts">
+    <div><dt>Cadrage et maquettes</dt><dd>Public visé, périmètre de la première version,
+    modèle économique. Maquettes validées avant la première ligne de code.</dd></div>
+    <div><dt>Développement</dt><dd>iOS natif, en Swift et SwiftUI. Applications web quand
+    le besoin s'y prête.</dd></div>
+    <div><dt>Achats intégrés</dt><dd>Abonnements et achats in-app avec StoreKit, écrans
+    d'abonnement conformes aux règles d'Apple.</dd></div>
+    <div><dt>Conformité</dt><dd>Directives de l'App Store, RGPD, politique de
+    confidentialité et étiquette de confidentialité de la fiche App Store.</dd></div>
+    <div><dt>Publication</dt><dd>Fiche App Store, soumission, échanges avec l'équipe de
+    revue d'Apple.</dd></div>
+    <div><dt>Maintenance</dt><dd>Mises à jour pour les nouvelles versions d'iOS,
+    corrections, évolutions.</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>En cours de développement</h2>
+  <p>Forge Yourself, application iOS de musculation&nbsp;: séances, charges et
+  mensurations, liaison avec l'app Santé, abonnement intégré. Écrite en SwiftUI, sans
+  compte ni collecte de données. Elle n'est pas encore publiée&nbsp;; elle le sera par
+  IE DIGITAL.</p>
+  <p><a class="more" href="forge-confidentialite.html">Politique de confidentialité de Forge Yourself</a></p>
+</section>
+
+<section>
+  <h2>Pour démarrer</h2>
+  <p>Décrivez l'idée, le public visé et l'échéance. Je vous dis si le projet est pour
+  moi, et ce que coûterait une première version, une fois le périmètre établi.</p>
+  <p><a class="cta" href="contact.html">Parler d'un projet</a></p>
+</section>
+""", "IE DIGITAL conçoit, développe et publie des applications iOS natives en Swift et SwiftUI : maquettes, achats intégrés, conformité App Store et RGPD, publication, maintenance.")
 
 # ------------------------------------------------------------------ méthode
 BODIES["methode.html"] = ("""
@@ -363,20 +428,15 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 <section>
   <h2>Éditeur du site</h2>
   <dl class="facts">
-    <div><dt>Dénomination sociale</dt><dd>IE DIGITAL</dd></div>
-    <div><dt>Nom commercial</dt><dd>IE DIGITAL</dd></div>
+    <div><dt>Raison sociale</dt><dd>IE DIGITAL</dd></div>
     <div><dt>Forme juridique</dt><dd>Société à responsabilité limitée (société à associé unique)</dd></div>
     <div><dt>Capital social</dt><dd class="mono">200,00 euros</dd></div>
     <div><dt>Siège social</dt><dd>31 rue du Président Kennedy, 59237 Verlinghem, France</dd></div>
-    <div><dt>RCS</dt><dd class="mono">822 744 116 R.C.S. Lille Métropole</dd></div>
-    <div><dt>Numéro de gestion</dt><dd class="mono">2016 B 03193</dd></div>
     <div><dt>SIREN</dt><dd class="mono">822 744 116</dd></div>
     <div><dt>Identifiant européen (EUID)</dt><dd class="mono">FR5910.822744116</dd></div>
     <div><dt>Date d'immatriculation</dt><dd class="mono">4 octobre 2016</dd></div>
-    <div><dt>Code APE / NAF</dt><dd class="mono">6202A — Conseil en systèmes et logiciels informatiques</dd></div>
-    <div><dt>TVA intracommunautaire</dt><dd class="mono">FR&nbsp;42&nbsp;822&nbsp;744&nbsp;116 <span class="todo">[À VÉRIFIER]</span></dd></div>
-    <div><dt>Gérant</dt><dd>Alexandre Elard</dd></div>
-    <div><dt>Directeur de la publication</dt><dd>Alexandre Elard</dd></div>
+    <div><dt>TVA intracommunautaire</dt><dd class="mono">FR&nbsp;42&nbsp;822&nbsp;744&nbsp;116</dd></div>
+    <div><dt>Gérant et directeur de la publication</dt><dd>Alexandre Elard</dd></div>
     <div><dt>Contact</dt><dd><a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a></dd></div>
   </dl>
 </section>
@@ -395,8 +455,9 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 <section>
   <h2>Hébergement</h2>
   <dl class="facts">
-    <div><dt>Hébergeur</dt><dd><span class="todo">[À COMPLÉTER]</span> — à renseigner une fois le site mis en ligne</dd></div>
-    <div><dt>Adresse</dt><dd><span class="todo">[À COMPLÉTER]</span></dd></div>
+    <div><dt>Hébergeur</dt><dd>GitHub, Inc. (service GitHub Pages)</dd></div>
+    <div><dt>Adresse</dt><dd>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</dd></div>
+    <div><dt>Nom de domaine</dt><dd>OVH SAS, 2 rue Kellermann, 59100 Roubaix, France</dd></div>
   </dl>
 </section>
 
