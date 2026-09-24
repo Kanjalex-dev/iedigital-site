@@ -430,7 +430,6 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
   <dl class="facts">
     <div><dt>Raison sociale</dt><dd>IE DIGITAL</dd></div>
     <div><dt>Forme juridique</dt><dd>Société à responsabilité limitée (société à associé unique)</dd></div>
-    <div><dt>Capital social</dt><dd class="mono">200,00 euros</dd></div>
     <div><dt>Siège social</dt><dd>31 rue du Président Kennedy, 59237 Verlinghem, France</dd></div>
     <div><dt>SIREN</dt><dd class="mono">822 744 116</dd></div>
     <div><dt>Identifiant européen (EUID)</dt><dd class="mono">FR5910.822744116</dd></div>
@@ -497,99 +496,58 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 BODIES["forge-confidentialite.html"] = ("""
 <p class="eyebrow">Forge Yourself</p>
 <h1>Politique de confidentialité</h1>
-<p class="lede">Forge Yourself ne collecte aucune donnée personnelle. Cette page
-dit ce que l'application fait de vos informations, et la réponse est courte :
-elle les garde sur votre téléphone.</p>
+<p class="lede">Forge Yourself, application iOS et application web · version du 24 septembre 2026</p>
+
+<p class="note"><b>En bref : nous ne recevons aucune de tes données d'entraînement ni de santé.</b> Il n'y a pas de compte, pas de serveur Forge, pas de publicité, pas de traceur. Ce que tu saisis est traité par l'application sur ton appareil, et y reste.</p>
 
 <section>
-  <h2>En résumé</h2>
-  <ul>
-    <li>Aucun compte à créer. Aucune adresse e-mail demandée.</li>
-    <li>Aucune donnée transmise à IE DIGITAL, ni à un tiers.</li>
-    <li>Aucun traceur, aucune publicité, aucun outil de mesure d'audience.</li>
-    <li>Vos séances, vos charges et vos mensurations restent dans la mémoire de
-    votre appareil.</li>
-  </ul>
+<h2>Qui édite l'application</h2>
+<p><b>IE DIGITAL</b>, SARL immatriculée au RCS de Lille Métropole sous le numéro 822 744 116. Pour toute question sur cette page ou sur tes données : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>.</p>
 </section>
-
 <section>
-  <h2>Les données que l'application manipule</h2>
-  <p>Forge Yourself enregistre, <strong>sur votre appareil uniquement</strong>,
-  ce que vous y saisissez : votre prénom ou le nom que vous donnez à votre
-  profil, vos réglages d'entraînement (niveau, objectif, matériel, jours), vos
-  séances et les charges soulevées, vos éventuels relevés de poids et de tour de
-  taille, et vos notes de séance.</p>
-  <p>Ces informations ne quittent jamais votre téléphone, sauf dans les deux cas
-  ci-dessous, que vous déclenchez vous-même.</p>
+<h2>Ce que l'application traite, et où</h2>
+<ul>
+<li><b>Ton programme, tes séances et tes charges</b> : enregistrés dans le stockage de l'application, sur ton appareil.</li>
+<li><b>Ton poids, ta taille, ton âge, tes mensurations</b> : même endroit. Ils servent à tracer ta courbe de suivi et, à partir de 18 ans, à calculer des repères alimentaires généraux. Ils ne sont transmis à personne, nous compris.</li>
+<li><b>Sur l'app web</b>, tout est gardé dans le stockage de ton navigateur. Vider les données du site les efface.</li>
+</ul>
+<p>Nous n'avons pas accès à ces données : nous ne pouvons ni les lire, ni les corriger, ni les supprimer à ta place. Tu les gères toi-même dans l'application ; <i>Profil › Supprimer ce profil</i> efface le profil et tout son historique. Supprimer l'application efface aussi ses données de l'appareil.</p>
 </section>
-
 <section>
-  <h2>Les deux cas où des données sortent de l'appareil</h2>
-  <dl class="facts">
-    <dt>La sauvegarde iCloud</dt>
-    <dd>Si vous l'activez, vos données de profil sont synchronisées par
-    <strong>iCloud</strong>, dans votre espace privé. IE DIGITAL n'y a pas accès
-    et ne peut pas les lire. Le traitement relève alors de la politique de
-    confidentialité d'Apple.</dd>
-    <dt>L'export</dt>
-    <dd>À votre demande, l'application produit un fichier contenant vos données,
-    que vous choisissez d'enregistrer ou de partager. Ce que ce fichier devient
-    ensuite ne dépend que de vous.</dd>
-  </dl>
+<h2>La sauvegarde</h2>
+<p><i>Profil › Sauvegarde</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail…). Il contient ton profil complet, mensurations comprises. Forge ne l'envoie nulle part : c'est toi qui choisis sa destination, et le service que tu choisis applique alors ses propres règles.</p>
 </section>
-
 <section>
-  <h2>Santé</h2>
-  <p>Si vous l'autorisez, Forge Yourself peut écrire vos séances terminées dans
-  l'application <strong>Santé</strong> d'Apple, et y lire votre poids. Cette
-  autorisation se donne et se retire à tout moment dans les réglages de votre
-  iPhone.</p>
-  <p>Les données de santé qui entrent dans l'application <strong>ne sont jamais
-  utilisées à des fins publicitaires ni transmises à qui que ce soit</strong>,
-  conformément à la règle 5.1.3 des directives de l'App Store.</p>
+<h2>L'app Santé (iPhone, facultatif)</h2>
+<p>Si tu actives <i>Profil › Santé</i>, Forge lit dans l'app Santé ton <b>poids</b> et ta <b>taille</b>, pour remplir ta courbe de suivi sans double saisie, et ton <b>nombre de pas</b>, pour afficher ta moyenne quotidienne dans l'onglet Suivi. Forge n'écrit rien dans Santé. Les données lues restent sur ton téléphone, ne sont jamais utilisées à des fins publicitaires et ne sont jamais transmises à un tiers. Tu peux retirer l'accès à tout moment dans <i>Réglages › Santé › Accès aux données et appareils › Forge</i>.</p>
 </section>
-
 <section>
-  <h2>Abonnement</h2>
-  <p>Les achats sont traités par <strong>Apple</strong>. IE DIGITAL ne reçoit ni
-  votre moyen de paiement, ni votre identifiant Apple, ni votre adresse. L'accès
-  à l'application est vérifié sur le reçu d'achat stocké localement sur votre
-  appareil.</p>
+<h2>Les achats</h2>
+<p>Les abonnements et l'achat à vie passent entièrement par Apple, qui en est responsable. Nous ne recevons ni ton nom, ni ton adresse, ni tes moyens de paiement. L'application vérifie sur ton appareil le justificatif signé par Apple pour savoir quelles fonctions ouvrir. La gestion et la résiliation se font dans les réglages de ton compte Apple.</p>
 </section>
-
 <section>
-  <h2>Vos droits</h2>
-  <p>Le règlement général sur la protection des données vous donne un droit
-  d'accès, de rectification, d'effacement, de limitation, d'opposition et de
-  portabilité sur vos données personnelles.</p>
-  <p>Comme IE DIGITAL ne détient aucune de vos données, ces droits s'exercent
-  directement dans l'application : <strong>l'export</strong> assure la
-  portabilité, et la <strong>suppression d'un profil</strong> — ou la
-  désinstallation — efface tout. IE DIGITAL ne peut ni retrouver ni restaurer
-  des données supprimées, parce qu'il n'en a jamais eu de copie.</p>
-  <p>Pour toute question : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>.
-  Vous pouvez également introduire une réclamation auprès de la
-  <a href="https://www.cnil.fr" rel="noopener">CNIL</a>.</p>
+<h2>Les statistiques</h2>
+<p>Forge n'intègre aucun outil de mesure d'audience. Apple nous fournit, dans son espace développeur, des statistiques agrégées : installations, plantages, abonnements. Les chiffres d'usage et les rapports de plantage ne proviennent que des personnes qui ont accepté, dans les réglages de leur iPhone, de partager leurs données d'analyse avec les développeurs ; ils ne nous permettent pas de t'identifier. L'app web ne mesure rien.</p>
 </section>
-
 <section>
-  <h2>Durée de conservation</h2>
-  <p>Vos données restent sur votre appareil aussi longtemps que vous y laissez
-  l'application installée. Sans abonnement actif, Forge Yourself ne conserve rien
-  au-delà de la journée en cours : les séances composées à la main ne sont pas
-  reportées au lendemain.</p>
+<h2>L'hébergement de l'app web et de cette page</h2>
+<p>L'app web et cette page sont hébergées par <b>GitHub</b> (GitHub, Inc., filiale de Microsoft, États-Unis). Comme tout hébergeur, GitHub peut enregistrer des données techniques de connexion, dont l'adresse IP, pour la sécurité de son service. Nous n'y avons pas accès. Voir la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité de GitHub</a>.</p>
 </section>
-
 <section>
-  <h2>Enfants</h2>
-  <p>Forge Yourself n'est pas destinée aux enfants de moins de treize ans et ne
-  leur demande aucune information.</p>
+<h2>Si tu nous écris</h2>
+<p>Si tu nous écris à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>, nous utilisons ton adresse et le contenu de ton message pour te répondre, et seulement pour cela. Nous les conservons le temps de traiter ta demande, puis au plus trois ans après notre dernier échange. N'y joins pas de données de santé : elles ne nous sont pas nécessaires.</p>
 </section>
-
 <section>
-  <h2>Modifications</h2>
-  <p>Toute évolution de cette politique sera publiée sur cette page, avec sa date
-  d'entrée en vigueur. <strong>Version du 21 septembre 2026.</strong></p>
+<h2>Les mineurs</h2>
+<p>L'âge est déclaré par toi, il n'est pas vérifié. En dessous de 18 ans, Forge n'affiche ni repères caloriques ni macronutriments.</p>
+</section>
+<section>
+<h2>Tes droits</h2>
+<p>Pour les données traitées sur ton appareil, tu exerces toi-même tes droits dans l'application : consulter, modifier, exporter, supprimer. Pour les messages que tu nous as envoyés, tu peux nous demander l'accès, la rectification ou l'effacement à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. Tu peux aussi saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
+</section>
+<section>
+<h2>Changements</h2>
+<p>Si le fonctionnement change, par exemple avec une synchronisation par iCloud, cette page sera mise à jour avant la version de l'application concernée, et la date en tête de page changera.</p>
 </section>
 """, "Politique de confidentialité de l'application Forge Yourself : aucune donnée collectée, tout reste sur votre appareil.")
 
