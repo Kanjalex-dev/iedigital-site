@@ -549,7 +549,7 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 
 <details>
 <summary>Comment gérer ou résilier mon abonnement ?</summary>
-<p>Dans <i>Profil › Données › Abonnement</i>, ou dans les réglages de l'iPhone : <i>Réglages › ton nom › Abonnements › Forge</i>. La résiliation prend effet à la fin de la période en cours ; tu gardes l'accès jusque-là, et ton historique reste consultable ensuite.</p>
+<p>Dans <i>Profil › Abonnement</i>, ou dans les réglages de l'iPhone : <i>Réglages › ton nom › Abonnements › Forge</i>. La résiliation prend effet à la fin de la période en cours ; tu gardes l'accès jusque-là, et ton historique reste consultable ensuite.</p>
 </details>
 
 <details>
@@ -575,7 +575,7 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 <details>
 <summary>Le minuteur ne sonne pas ou ne vibre pas</summary>
 <ul>
-<li>Vérifie le son et la vibration dans <i>Profil › Séance</i>.</li>
+<li>Vérifie le son et la vibration dans <i>Profil › Programme › Pendant la séance</i>.</li>
 <li>Le son de fin suit le bouton silencieux de l'iPhone : en mode silencieux, seule la vibration reste.</li>
 <li>Pour être prévenu téléphone verrouillé, autorise les notifications : <i>Réglages › Notifications › Forge</i>.</li>
 </ul>
