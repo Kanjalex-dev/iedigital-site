@@ -392,3 +392,9 @@ section[id] { scroll-margin-top: 24px; }
 .index .d { font-family: var(--mono); font-size: var(--s-1); line-height: 1.5; color: var(--ink-2); }
 .index a:hover .t { color: var(--accent-ink); text-decoration: underline;
   text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* FAQ repliable (pages Forge) */
+.faq details { border-top: 1px solid var(--rule); padding: 12px 0; }
+.faq details:last-of-type { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; font-weight: 600; color: var(--ink); min-height: 44px; display: flex; align-items: center; }
+.faq details p, .faq details ul { color: var(--ink-2); margin: 8px 0 0; }

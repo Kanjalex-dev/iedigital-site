@@ -10,11 +10,13 @@ PAGES = [
     ("index.html", "Accueil"),
     ("expertises.html", "Conseil produit"),
     ("applications.html", "Applications"),
+    ("forge.html", "Forge Yourself"),
     ("methode.html", "Méthode"),
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
     ("mentions-legales.html", "Mentions légales"),
     ("forge-confidentialite.html", "Forge — Confidentialité"),
+    ("forge-assistance.html", "Forge — Assistance"),
 ]
 
 HEAD = """<!doctype html>
@@ -73,9 +75,12 @@ FOOT = """
 def nav_for(current: str) -> str:
     out = []
     for slug, label in PAGES:
-        if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html"):
+        if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
+                    "forge-assistance.html"):
             continue
-        cur = ' aria-current="page"' if slug == current else ""
+        # Les pages Forge allument l'entrée « Forge Yourself » de la navigation.
+        actif = current if not current.startswith("forge-") else "forge.html"
+        cur = ' aria-current="page"' if slug == actif else ""
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
     return "\n".join(out)
 
@@ -266,7 +271,7 @@ de la première maquette à la fiche App Store, puis les maintient.</p>
   mensurations, liaison avec l'app Santé, abonnement intégré. Écrite en SwiftUI, sans
   compte ni collecte de données. Elle n'est pas encore publiée&nbsp;; elle le sera par
   IE DIGITAL.</p>
-  <p><a class="more" href="forge-confidentialite.html">Politique de confidentialité de Forge Yourself</a></p>
+  <p><a class="more" href="forge.html">Forge Yourself : présentation, assistance, confidentialité</a></p>
 </section>
 
 <section>
@@ -489,6 +494,108 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 </section>
 """, "Informations légales d'IE DIGITAL : éditeur, hébergement, propriété intellectuelle et données personnelles.")
 
+# ---------------------------------------------------------- Forge · section
+# Section de l'application Forge Yourself : présentation, assistance,
+# confidentialité. Les URL forge-assistance.html et forge-confidentialite.html
+# sont déclarées dans App Store Connect : ne jamais les renommer.
+BODIES["forge.html"] = ("""
+<p class="eyebrow">Application iOS</p>
+<h1>Forge Yourself</h1>
+<p class="lede">Programme de musculation et suivi de force. Forge construit ton programme
+sur ton matériel, ton niveau et tes jours, puis règle la charge de chaque exercice
+séance après séance, d'après ce que tu déclares.</p>
+
+<section>
+  <h2>En bref</h2>
+  <dl class="facts">
+    <div><dt>Plateforme</dt><dd>iPhone, iOS 17 et plus. En préparation, pas encore publiée sur l'App Store.</dd></div>
+    <div><dt>Compte</dt><dd>Aucun. Pas de serveur Forge, pas de publicité, pas de traceur.</dd></div>
+    <div><dt>Données</dt><dd>Enregistrées sur l'iPhone. Export d'une sauvegarde à tout moment.</dd></div>
+    <div><dt>Formules</dt><dd>Carnet du jour gratuit ; programme, progression automatique et historique avec l'abonnement.</dd></div>
+    <div><dt>Éditeur</dt><dd>IE DIGITAL</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>Aide et informations</h2>
+  <ul>
+    <li><a href="forge-assistance.html">Assistance et questions fréquentes</a></li>
+    <li><a href="forge-confidentialite.html">Politique de confidentialité</a></li>
+    <li><a href="mailto:contact@iedigital.fr?subject=Forge%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
+  </ul>
+</section>
+""", "Forge Yourself, application iOS de musculation éditée par IE DIGITAL : programme, charges qui s'ajustent, suivi. Assistance et confidentialité.")
+
+BODIES["forge-assistance.html"] = ("""
+<p class="eyebrow"><a href="forge.html">Forge Yourself</a></p>
+<h1>Assistance</h1>
+<p class="lede">Forge Yourself, application iOS · IE DIGITAL</p>
+
+<p class="note"><b>Nous écrire : <a href="mailto:contact@iedigital.fr?subject=Forge%20%E2%80%94%20assistance">contact@iedigital.fr</a></b><br>
+Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce qui s'est passé, le modèle de ton iPhone et sa version d'iOS (Réglages › Général › Informations). Une capture d'écran aide beaucoup.</p>
+
+<section class="faq">
+<h2>Questions fréquentes</h2>
+
+<details>
+<summary>Faut-il créer un compte ?</summary>
+<p>Non. Forge fonctionne sans compte et sans serveur : ton programme, tes séances et tes relevés sont enregistrés sur ton iPhone.</p>
+</details>
+
+<details>
+<summary>Comment sauvegarder mes données, ou les passer sur un nouvel iPhone ?</summary>
+<p><i>Profil › Données › Sauvegarder ce profil</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail). Sur le nouvel iPhone, à l'écran « Qui s'entraîne ? », touche <i>Restaurer une sauvegarde</i> et choisis ce fichier : Forge te montre ce qu'il contient avant d'importer. L'import ajoute un profil, il n'en écrase jamais un.</p>
+</details>
+
+<details>
+<summary>Comment gérer ou résilier mon abonnement ?</summary>
+<p>Dans <i>Profil › Données › Abonnement</i>, ou dans les réglages de l'iPhone : <i>Réglages › ton nom › Abonnements › Forge</i>. La résiliation prend effet à la fin de la période en cours ; tu gardes l'accès jusque-là, et ton historique reste consultable ensuite.</p>
+</details>
+
+<details>
+<summary>J'ai changé d'iPhone et je ne retrouve pas mon achat</summary>
+<p>Ouvre l'écran d'abonnement et touche <i>Restaurer mes achats</i>, avec le même identifiant Apple que lors de l'achat. L'abonnement et l'achat à vie sont liés à ton identifiant Apple, pas à l'iPhone.</p>
+</details>
+
+<details>
+<summary>Comment demander un remboursement ?</summary>
+<p>Les paiements passent par Apple, qui seul peut rembourser : <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>, puis « Demander un remboursement ». Nous ne voyons ni ne gérons tes paiements.</p>
+</details>
+
+<details>
+<summary>À quoi sert l'app Santé, et comment couper l'accès ?</summary>
+<p>Si tu l'actives dans <i>Profil › Données › Santé</i>, Forge lit ton poids, ta taille et tes pas pour éviter une double saisie. Forge n'écrit rien dans Santé, et ces données restent sur ton iPhone. Pour retirer l'accès : <i>Réglages › Santé › Accès aux données et appareils › Forge</i>.</p>
+</details>
+
+<details>
+<summary>Comment effacer mes données ?</summary>
+<p><i>Profil › Données › Supprimer ce profil</i> efface le profil et tout son historique. Supprimer l'application efface toutes ses données de l'iPhone.</p>
+</details>
+
+<details>
+<summary>Le minuteur ne sonne pas ou ne vibre pas</summary>
+<ul>
+<li>Vérifie le son et la vibration dans <i>Profil › Séance</i>.</li>
+<li>Le son de fin suit le bouton silencieux de l'iPhone : en mode silencieux, seule la vibration reste.</li>
+<li>Pour être prévenu téléphone verrouillé, autorise les notifications : <i>Réglages › Notifications › Forge</i>.</li>
+</ul>
+</details>
+
+<details>
+<summary>Forge remplace-t-il un avis médical ?</summary>
+<p>Non. Les programmes et les repères de nutrition sont des repères d'entraînement, pas un avis médical. En cas de douleur, de blessure, de maladie, de grossesse ou de trouble alimentaire, demande l'avis d'un professionnel de santé avant de t'entraîner.</p>
+</details>
+</section>
+
+<section>
+<h2>Liens utiles</h2>
+<ul>
+<li><a href="forge-confidentialite.html">Politique de confidentialité</a></li>
+<li><a href="mentions-legales.html">Mentions légales</a> — IE DIGITAL, SARL, RCS Lille Métropole 822 744 116</li>
+</ul>
+</section>
+""", "Assistance de Forge Yourself : contact, sauvegarde et changement d'iPhone, abonnement, remboursement, app Santé, suppression des données.")
+
 # --------------------------------------------- Forge · confidentialité
 # Page exigée par Apple pour la soumission de l'application Forge Yourself.
 # Son URL doit rester stable : elle est déclarée dans App Store Connect, et la
@@ -558,6 +665,10 @@ for slug, label in PAGES:
         title = "IE DIGITAL"
     elif slug == "forge-confidentialite.html":
         title = "Confidentialité — Forge Yourself"
+    elif slug == "forge-assistance.html":
+        title = "Assistance — Forge Yourself"
+    elif slug == "forge.html":
+        title = "Forge Yourself — IE DIGITAL"
     else:
         title = f"{label} — IE DIGITAL"
     (OUT / slug).write_text(render(slug, title, desc, body), encoding="utf-8")
