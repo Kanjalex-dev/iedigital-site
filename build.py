@@ -442,6 +442,7 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
     <div><dt>TVA intracommunautaire</dt><dd class="mono">FR&nbsp;42&nbsp;822&nbsp;744&nbsp;116</dd></div>
     <div><dt>Gérant et directeur de la publication</dt><dd>Alexandre Elard</dd></div>
     <div><dt>Contact</dt><dd><a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a></dd></div>
+    <div><dt>Téléphone</dt><dd><a href="tel:+33986139551">09&nbsp;86&nbsp;13&nbsp;95&nbsp;51</a></dd></div>
   </dl>
 </section>
 
