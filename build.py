@@ -11,12 +11,16 @@ PAGES = [
     ("expertises.html", "Conseil produit"),
     ("applications.html", "Applications"),
     ("forge.html", "Forge Yourself"),
+    ("essor.html", "Essor"),
     ("methode.html", "Méthode"),
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
     ("mentions-legales.html", "Mentions légales"),
     ("forge-confidentialite.html", "Forge — Confidentialité"),
     ("forge-assistance.html", "Forge — Assistance"),
+    ("essor-confidentialite.html", "Essor — Confidentialité"),
+    ("essor-assistance.html", "Essor — Assistance"),
+    ("essor-methode.html", "Essor — Méthode de l'indice"),
 ]
 
 HEAD = """<!doctype html>
@@ -76,10 +80,15 @@ def nav_for(current: str) -> str:
     out = []
     for slug, label in PAGES:
         if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
-                    "forge-assistance.html"):
+                    "forge-assistance.html", "essor-confidentialite.html", "essor-assistance.html",
+                    "essor-methode.html"):
             continue
-        # Les pages Forge allument l'entrée « Forge Yourself » de la navigation.
-        actif = current if not current.startswith("forge-") else "forge.html"
+        # Les sous-pages d'une application allument l'entrée de l'application dans la navigation.
+        actif = current
+        if current.startswith("forge-"):
+            actif = "forge.html"
+        elif current.startswith("essor-"):
+            actif = "essor.html"
         cur = ' aria-current="page"' if slug == actif else ""
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
     return "\n".join(out)
@@ -272,6 +281,10 @@ de la première maquette à la fiche App Store, puis les maintient.</p>
   compte ni collecte de données. Elle n'est pas encore publiée&nbsp;; elle le sera par
   IE DIGITAL.</p>
   <p><a class="more" href="forge.html">Forge Yourself : présentation, assistance, confidentialité</a></p>
+  <p>Essor, application iOS de bien-être&nbsp;: trois gestes par jour, une recette
+  française le soir, un indice d'habitudes qui explique ses calculs. Sans compte ni
+  collecte de données.</p>
+  <p><a class="more" href="essor.html">Essor : présentation, assistance, confidentialité</a></p>
 </section>
 
 <section>
@@ -687,6 +700,258 @@ BODIES["forge-confidentialite.html"] = ("""
 </ul>
 """, "Politique de confidentialité de l'application Forge Yourself : aucune donnée collectée, tout reste sur votre appareil.")
 
+# ---------------------------------------------------------- Essor · section
+# Section de l'application Essor : présentation, assistance, confidentialité,
+# méthode de l'indice. Les URL essor-assistance.html, essor-confidentialite.html
+# et essor/flags.json sont inscrites dans l'app et dans App Store Connect :
+# ne jamais les renommer.
+BODIES["essor.html"] = ("""
+<p class="eyebrow">Application iOS</p>
+<h1>Essor</h1>
+<p class="lede">L'art de vivre longtemps, au quotidien. Trois gestes par jour, une
+recette française le soir, et un indice qui explique ses calculs.</p>
+
+<section>
+  <h2>En bref</h2>
+  <dl class="facts">
+    <div><dt>Plateforme</dt><dd>iPhone, iOS 26 et plus. Réservée aux personnes de 18 ans ou plus.</dd></div>
+    <div><dt>Compte</dt><dd>Aucun. Pas de serveur Essor, pas de publicité, pas de traceur.</dd></div>
+    <div><dt>Données</dt><dd>Enregistrées et chiffrées sur l'iPhone. Export chiffré et effacement depuis l'app.</dd></div>
+    <div><dt>Formules</dt><dd>Gestes, cuisine, indice et bilans gratuits ; idées liées aux bilans, observations et idées de dîner illimitées avec Essor Premium.</dd></div>
+    <div><dt>Nature</dt><dd>Application de bien-être. Elle ne remplace pas l'avis d'un médecin et ne pose aucun diagnostic.</dd></div>
+    <div><dt>Éditeur</dt><dd>IE DIGITAL</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>Aide et informations</h2>
+  <ul>
+    <li><a href="essor-assistance.html">Assistance et questions fréquentes</a></li>
+    <li><a href="essor-confidentialite.html">Politique de confidentialité</a></li>
+    <li><a href="essor-methode.html">Méthode de l'Indice Essor et de l'Âge d'habitudes</a></li>
+    <li><a href="mailto:contact@iedigital.fr?subject=Essor%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
+  </ul>
+</section>
+""", "Essor, application iOS de bien-être éditée par IE DIGITAL : gestes du jour, cuisine française, indice d'habitudes expliqué. Assistance, confidentialité, méthode.")
+
+BODIES["essor-assistance.html"] = ("""
+<p class="eyebrow"><a href="essor.html">Essor</a></p>
+<h1>Assistance</h1>
+<p class="lede">Essor, application iOS · IE DIGITAL</p>
+
+<p class="note"><b>Nous écrire : <a href="mailto:contact@iedigital.fr?subject=Essor%20%E2%80%94%20assistance">contact@iedigital.fr</a></b><br>
+Réponse sous 3 jours ouvrés. Indiquez le modèle de votre iPhone, la version d'iOS et celle d'Essor (<i>Profil › À propos</i>). N'envoyez jamais vos bilans ni vos valeurs de santé.</p>
+
+<section class="faq">
+<h2>Questions fréquentes</h2>
+
+<details>
+<summary>Faut-il créer un compte ?</summary>
+<p>Non. Essor fonctionne sans compte et sans serveur : vos données sont enregistrées et chiffrées sur votre iPhone. Détails dans la <a href="essor-confidentialite.html">politique de confidentialité</a>.</p>
+</details>
+
+<details>
+<summary>Comment changer d'iPhone sans rien perdre ?</summary>
+<p>Les données d'Essor ne partent pas dans la sauvegarde iCloud. Sur l'ancien iPhone : <i>Profil › Confidentialité › Exporter mes données</i>, choisissez une phrase de passe et enregistrez le fichier .essor. Sur le nouvel iPhone : <i>Importer un export</i>, avec la même phrase de passe.</p>
+</details>
+
+<details>
+<summary>Mon indice ne bouge pas ou affiche « — »</summary>
+<p>Vérifiez l'accès à Apple Santé dans <i>Réglages › Santé › Accès aux données › Essor</i>. Une donnée absente n'est jamais inventée : la dimension concernée reste vide et la confiance de l'indice baisse. Voir la <a href="essor-methode.html">méthode de l'indice</a>.</p>
+</details>
+
+<details>
+<summary>Comment importer un bilan sanguin ?</summary>
+<p>Onglet <i>Bilans › Importer un bilan</i>, puis choisissez le PDF de votre laboratoire. Vérifiez chaque valeur avant de confirmer. L'import et l'affichage sont gratuits. « Pour mon rendez-vous » prépare ensuite un PDF que vous relisez avant de le montrer à votre médecin.</p>
+</details>
+
+<details>
+<summary>À quoi sert le jour sans pression ?</summary>
+<p>Un jour par semaine (le dimanche par défaut, réglable dans <i>Progrès</i>) où rien n'est attendu : s'il se passe sans geste, votre série continue.</p>
+</details>
+
+<details>
+<summary>Les widgets n'affichent pas mes gestes</summary>
+<p>Ouvrez Essor une fois : les widgets se mettent à jour à chaque ouverture. Sur l'écran verrouillé, l'option <i>Profil › Confidentialité › Texte neutre</i> remplace le titre du geste par « Votre geste du jour ».</p>
+</details>
+
+<details>
+<summary>Qu'apporte Essor Premium ?</summary>
+<p>Les idées générales liées aux repères de vos bilans, les observations sur vos habitudes, et des idées de dîner illimitées. Les gestes, la cuisine du jour, l'Indice Essor et son explication, l'import et l'affichage des bilans restent gratuits.</p>
+</details>
+
+<details>
+<summary>Comment résilier ou restaurer mon abonnement ?</summary>
+<p>Résilier : <i>Profil › Abonnement › Gérer ou résilier l'abonnement</i>, ou <i>Réglages › votre nom › Abonnements</i>, au moins 24 heures avant l'échéance. Restaurer après une réinstallation : <i>Restaurer mes achats</i>, avec le même identifiant Apple. Les remboursements sont gérés par Apple sur <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+</details>
+
+<details>
+<summary>Comment tout effacer ?</summary>
+<p><i>Profil › Confidentialité › Tout effacer</i>, puis confirmez. Toutes les données d'Essor sur l'iPhone sont supprimées. Restent en place les données d'Apple Santé (Essor n'y écrit rien), les ingrédients ajoutés aux Rappels et les fichiers que vous avez partagés ou exportés.</p>
+</details>
+
+<details>
+<summary>Essor remplace-t-il un avis médical ?</summary>
+<p>Non. Essor est une application de bien-être, pas un dispositif médical : elle n'interprète pas vos résultats et ne pose aucun diagnostic. Pour un résultat qui vous interroge, parlez-en à votre médecin.</p>
+</details>
+</section>
+""", "Assistance de l'application Essor : questions fréquentes, abonnement, changement d'iPhone, contact.")
+
+BODIES["essor-methode.html"] = ("""
+<p class="eyebrow"><a href="essor.html">Essor</a></p>
+<h1>Méthode de l'Indice Essor</h1>
+<p class="lede">Ce que l'indice mesure, comment il est calculé, et ses limites. Formule
+« score-v1 ». L'indice reflète vos habitudes, pas votre santé.</p>
+
+<section>
+  <h2>Ce que c'est</h2>
+  <p>L'Indice Essor est une note de 0 à 100 qui résume vos habitudes des sept derniers
+  jours, calculée sur votre iPhone. Les poids sont des choix éditoriaux d'IE DIGITAL,
+  publiés ici ; ils ne prétendent à aucune validation scientifique. L'indice ne mesure
+  ni votre état de santé ni un risque, et ne remplace pas l'avis d'un médecin.</p>
+</section>
+
+<section>
+  <h2>Six dimensions</h2>
+  <dl class="facts">
+    <div><dt>Activité · 25 %</dt><dd>Moyenne de deux notes sur 7 jours : les minutes d'exercice, ramenées au repère de l'OMS (2020) de 150 à 300 minutes d'activité modérée par semaine (150 min donnent 80, 300 min donnent 100) ; et les pas quotidiens (2 000 pas donnent 0, 10 000 pas donnent 100).</dd></div>
+    <div><dt>Sommeil · 20 %</dt><dd>Durée moyenne, comparée au repère de la National Sleep Foundation (7 à 9 h par nuit pour un adulte de 26 à 64 ans : 100 dans cette plage), et régularité de l'heure de coucher (écart type de 30 min ou moins : 100 ; 2 h ou plus : 0).</dd></div>
+    <div><dt>Récupération · 15 %</dt><dd>Fréquence cardiaque au repos et variabilité cardiaque du jour, comparées à votre propre moyenne des 28 derniers jours (14 jours au minimum) : 50 correspond à votre moyenne habituelle.</dd></div>
+    <div><dt>Forme · 10 %</dt><dd>VO2max estimée par l'Apple Watch, comparée à la médiane de votre âge et de votre sexe dans le registre FRIEND (Kaminsky et al., Mayo Clinic Proceedings, 2022) : la médiane donne 50, 10 points au-dessus donnent 100.</dd></div>
+    <div><dt>Nutrition · 15 %</dt><dd>Fibres (repère de l'ANSES : 30 g par jour) et diversité des végétaux sur 7 jours (30 végétaux distincts donnent 100), d'après les repas notés dans Essor.</dd></div>
+    <div><dt>Habitudes · 15 %</dt><dd>Part des gestes clés faits sur 7 jours (3 par jour).</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>Calcul</h2>
+  <p>Chaque dimension donne une note de 0 à 100. L'indice est leur moyenne pondérée, sur
+  les seules dimensions disponibles : une donnée absente n'est jamais inventée, les poids
+  restants sont répartis et la confiance affichée baisse. La valeur affichée est lissée
+  sur 7 jours (moyenne mobile exponentielle). Le détail de chaque dimension, de ses
+  données et de sa contribution est visible dans l'app : <i>Aujourd'hui › Pourquoi … ?</i></p>
+</section>
+
+<section>
+  <h2>Âge d'habitudes</h2>
+  <p>L'Âge d'habitudes traduit les mêmes dimensions en années, à côté de votre âge civil :
+  une dimension à 100 rapproche de −8 ans, à 0 de +8 ans, l'écart total étant plafonné à
+  8 ans. Il faut au moins 7 jours de données. Ce n'est pas un âge biologique : il reflète
+  vos habitudes, pas votre santé.</p>
+</section>
+
+<section>
+  <h2>Bilans sanguins</h2>
+  <p>Vos bilans n'entrent jamais dans l'indice ni dans l'Âge d'habitudes.</p>
+</section>
+""", "Méthode de l'Indice Essor et de l'Âge d'habitudes : dimensions, poids, repères publics, limites.")
+
+BODIES["essor-confidentialite.html"] = ("""
+<p class="eyebrow"><a href="essor.html">Essor</a></p>
+<h1>Politique de confidentialité</h1>
+<p class="lede">Essor, application iOS · version du 3 octobre 2026</p>
+
+<div class="note" style="margin-bottom:32px">
+<p style="margin:0"><b>En bref.</b> Essor n'a ni compte, ni serveur, ni outil de mesure d'audience, ni publicité. Vos données sont enregistrées sur votre iPhone, chiffrées et exclues de la sauvegarde iCloud. IE DIGITAL, l'éditeur, ne reçoit aucune de vos données et ne peut pas y accéder. Certaines fonctions d'iOS que vous activez (widgets, Activité en direct, Siri, Rappels, partage) affichent ou transmettent des informations par l'intermédiaire d'Apple ou vers la destination que vous choisissez : elles sont détaillées à la section 6. Vous pouvez exporter ou effacer toutes vos données Essor à tout moment, depuis l'app.</p>
+</div>
+
+<h2>1. Qui est responsable</h2>
+<p>Le responsable du traitement est <b>IE DIGITAL</b>, SARL à associé unique immatriculée au RCS de Lille Métropole sous le numéro 822 744 116, dont le siège est au 31 rue du Président Kennedy, 59237 Verlinghem, France. Directeur de la publication : Alexandre Elard, gérant. Contact : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. IE DIGITAL n'a pas désigné de délégué à la protection des données ; pour toute question sur vos données, écrivez à cette adresse.</p>
+
+<h2>2. Les données utilisées par Essor</h2>
+<ul>
+<li><b>Année de naissance, objectifs</b> : adapter les gestes et vérifier que vous avez 18 ans ou plus. Sur l'iPhone.</li>
+<li><b>Profil facultatif (sexe, grossesse, diabète)</b> : écarter les gestes ou recettes inadaptés. Sur l'iPhone.</li>
+<li><b>Données Apple Santé, en lecture seule</b> (pas, minutes d'exercice, durée du sommeil, heure de coucher, fréquence cardiaque au repos, variabilité de la fréquence cardiaque, VO2max) : calculer l'Indice Essor et l'Âge d'habitudes, afficher vos moyennes. Lues dans Apple Santé, traitées sur l'iPhone.</li>
+<li><b>Gestes cochés, jour sans pression</b> : suivre vos habitudes. Sur l'iPhone.</li>
+<li><b>Journal des repas, contenu du frigo, critères de cuisine</b> : proposer des recettes et la liste de courses. Sur l'iPhone.</li>
+<li><b>Bilans sanguins importés (PDF) et valeurs que vous avez vérifiées</b> : afficher vos résultats tels qu'imprimés, préparer « Pour mon rendez-vous ». Sur l'iPhone, dans un espace séparé.</li>
+<li><b>Journal de vos consentements</b> : prouver vos choix et vous permettre de les retirer. Sur l'iPhone.</li>
+<li><b>Réglages des rappels</b> : envoyer les notifications que vous avez choisies. Sur l'iPhone.</li>
+<li><b>Résumé pour les widgets</b> (gestes du jour, dîner, Indice Essor ; jamais de donnée de bilan) : afficher les widgets. Sur l'iPhone, dans un espace partagé entre l'app et ses widgets.</li>
+</ul>
+<p>Essor ne vous demande ni nom, ni adresse électronique, ni numéro de téléphone.</p>
+
+<h2>3. Bases légales</h2>
+<ul>
+<li><b>Données de santé</b> (Apple Santé, profil facultatif, bilans) : votre consentement explicite (articles 6.1.a et 9.2.a du RGPD), demandé séparément pour Apple Santé et pour les bilans. Vous pouvez le retirer à tout moment dans <i>Profil › Confidentialité</i>, sans effet sur ce qui a été fait avant le retrait.</li>
+<li><b>Fonctionnement de l'app, rappels et notifications, widgets, Activité en direct, Siri, liste de courses</b> : l'exécution du service que vous utilisez (article 6.1.b du RGPD). Les notifications, l'accès aux Rappels et Siri exigent aussi votre autorisation dans iOS.</li>
+<li><b>Lecture du fichier de configuration</b> (section 6) : l'intérêt légitime d'IE DIGITAL à pouvoir désactiver à distance une fonction défaillante (article 6.1.f du RGPD).</li>
+<li><b>Échanges par courriel avec IE DIGITAL</b> : l'intérêt légitime à vous répondre (article 6.1.f du RGPD).</li>
+</ul>
+
+<h2>4. Apple Santé</h2>
+<p>Essor lit uniquement les données listées à la section 2 et n'écrit rien dans Apple Santé. Vous choisissez chaque catégorie dans l'écran d'autorisation d'iOS et pouvez modifier ce choix dans <i>Réglages › Santé › Accès aux données</i>. Ces données ne servent jamais à la publicité ou au marketing, et ne sont jamais vendues ni communiquées à un tiers.</p>
+
+<h2>5. Bilans sanguins</h2>
+<p>Les PDF que vous importez restent sur votre iPhone, dans un espace séparé. Vous vérifiez chaque valeur avant qu'elle soit enregistrée. Essor affiche les valeurs telles qu'imprimées ; il n'interprète pas vos résultats et ne pose aucun diagnostic.</p>
+<p><b>« Pour mon rendez-vous »</b> génère sur l'iPhone un PDF que vous devez relire avant export. Il contient les valeurs recopiées de votre bilan, le nom du laboratoire et, dans une section séparée, vos moyennes de sommeil, de pas, de minutes d'activité et les gestes cochés. Il ne contient ni l'Indice Essor ni l'Âge d'habitudes. Il est créé dans un dossier temporaire protégé de l'app, puis supprimé après le partage.</p>
+<p>Vos bilans ne sont jamais utilisés par une fonction d'intelligence artificielle.</p>
+
+<h2>6. Ce qui peut sortir de l'app</h2>
+<p>IE DIGITAL ne reçoit rien. Les flux ci-dessous n'existent que si vous utilisez la fonction concernée.</p>
+<ul>
+<li><b>Fichier de configuration.</b> Au lancement, Essor télécharge le fichier iedigital.fr/essor/flags.json pour savoir si une fonction doit être désactivée. Aucune de vos données n'est envoyée. Comme pour toute connexion Internet, votre adresse IP est transmise à l'hébergeur, GitHub, Inc. (États-Unis), qui peut la conserver dans ses journaux techniques.</li>
+<li><b>Achats.</b> Les achats et abonnements sont traités par Apple. IE DIGITAL ne reçoit ni votre identité ni vos moyens de paiement, seulement des statistiques de ventes non nominatives.</li>
+<li><b>Widgets et Activité en direct.</b> Les widgets de l'écran d'accueil et de l'écran verrouillé affichent vos gestes du jour, le dîner du soir et, si vous l'ajoutez, l'Indice Essor. Sur l'écran verrouillé, le contenu reste générique ; l'option « Texte neutre » remplace le titre du geste par « Votre geste du jour ». Le minuteur de cuisine affiche le nom de la recette, l'étape et le temps restant sur l'écran verrouillé et dans la Dynamic Island. Selon vos réglages iOS, le minuteur peut aussi s'afficher sur votre Apple Watch. Ces éléments sont lisibles par toute personne qui voit l'écran.</li>
+<li><b>Siri et Raccourcis.</b> Les actions Essor s'exécutent sur l'iPhone ; celles qui lisent ou modifient vos données exigent que l'appareil soit déverrouillé. Votre demande vocale est traitée par Apple selon ses propres règles de confidentialité.</li>
+<li><b>Liste de courses (Rappels).</b> Si vous l'autorisez, Essor ajoute les ingrédients manquants à l'app Rappels, dans la liste « Courses » ou dans votre liste par défaut. iOS n'accorde qu'un accès complet aux Rappels, mais Essor ne lit aucun autre rappel. Selon vos réglages, Apple peut synchroniser vos Rappels par iCloud ; cette synchronisation ne dépend pas d'Essor.</li>
+<li><b>Partages.</b> Le PDF « Pour mon rendez-vous », la carte « Bilan du dimanche » (gestes accomplis et noms des recettes, jamais d'indice, de sommeil ni de bilan) et l'export chiffré ne sortent que si vous les partagez vous-même avec la feuille de partage d'iOS. Une fois partagés, ils relèvent du service que vous avez choisi. Aucune récompense n'est liée au partage.</li>
+<li><b>Liens vers des sources.</b> Quand vous ouvrez un lien, le site consulté reçoit votre adresse IP selon sa propre politique.</li>
+</ul>
+
+<h2>7. Intelligence artificielle</h2>
+<p>Essor n'utilise aucun service d'intelligence artificielle, et aucune de vos données n'est envoyée à un tel service. Cette politique sera mise à jour avant toute évolution sur ce point.</p>
+
+<h2>8. Mesure d'audience, publicité, traceurs</h2>
+<p>Essor ne contient aucun outil de mesure d'audience, aucune publicité, aucun traceur et aucun kit tiers de collecte. Si vous avez accepté dans iOS de partager vos analyses avec les développeurs, Apple peut transmettre à IE DIGITAL des rapports de plantage et des statistiques non nominatives ; vous pouvez modifier ce choix dans <i>Réglages › Confidentialité et sécurité › Analyse et améliorations</i>.</p>
+
+<h2>9. Sécurité et sauvegarde</h2>
+<p>Les données d'Essor bénéficient de la protection complète d'iOS : elles sont chiffrées et illisibles tant que l'iPhone est verrouillé, et exclues de la sauvegarde iCloud. Le résumé destiné aux widgets est lisible après le premier déverrouillage qui suit le démarrage de l'iPhone, ce qui est nécessaire pour que les widgets s'affichent ; il ne contient aucune donnée de bilan et il est lui aussi exclu de la sauvegarde iCloud. Conséquence : si vous perdez ou changez d'iPhone sans avoir fait d'export, vos données sont perdues.</p>
+
+<h2>10. Export, import, effacement</h2>
+<ul>
+<li><b>Export</b> : toutes vos données dans un fichier .essor chiffré (AES-256) avec une phrase de passe que vous choisissez. IE DIGITAL ne connaît pas cette phrase et ne peut pas la récupérer.</li>
+<li><b>Import</b> : le fichier .essor se réimporte dans Essor.</li>
+<li><b>Effacement</b> : « Tout effacer » supprime toutes les données d'Essor sur l'iPhone ; désinstaller l'app a le même effet. Restent en place les données d'Apple Santé (Essor n'y écrit rien), les ingrédients ajoutés aux Rappels et les fichiers que vous avez partagés ou exportés, que vous pouvez supprimer depuis les apps concernées.</li>
+</ul>
+
+<h2>11. Durée de conservation</h2>
+<ul>
+<li>Les données d'Essor sont conservées sur votre iPhone jusqu'à ce que vous les effaciez ou désinstalliez l'app.</li>
+<li>Le PDF « Pour mon rendez-vous » est supprimé du dossier temporaire après le partage.</li>
+<li>Le résumé des widgets est remplacé à chaque mise à jour ; l'Activité en direct se termine à la fin du minuteur.</li>
+<li>Les courriels échangés avec IE DIGITAL sont conservés au plus 3 ans après le dernier échange.</li>
+</ul>
+
+<h2>12. Rappels et notifications</h2>
+<p>Si vous les autorisez, Essor envoie des notifications générées sur l'iPhone, sans passer par un serveur : au plus deux par jour (« Vos gestes du jour sont prêts », « Une idée de dîner vous attend ») ; le dimanche à 18 h (« Votre semaine à la française est prête ») ; pendant l'essai, un rappel 2 jours avant sa fin. Vous pouvez les désactiver une par une dans Essor, ou toutes à la fois dans <i>Réglages › Notifications</i>.</p>
+
+<h2>13. Vos droits</h2>
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition, ainsi que du droit de retirer votre consentement. Vous pouvez aussi définir des directives sur le sort de vos données après votre décès. Comme IE DIGITAL ne détient aucune de vos données d'Essor, vous exercez la plupart de ces droits directement dans l'app : <i>Profil › Confidentialité</i>, export, « Tout effacer ». Pour toute autre demande, écrivez à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> ; une réponse vous sera apportée sous un mois.</p>
+<p>Vous pouvez introduire une réclamation auprès de la CNIL, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
+
+<h2>14. Décision automatisée</h2>
+<p>L'Indice Essor et l'Âge d'habitudes sont des calculs faits sur votre iPhone à partir de vos habitudes (voir la <a href="essor-methode.html">méthode</a>). Ils n'entraînent aucune décision produisant des effets juridiques à votre égard ou vous affectant de manière significative, au sens de l'article 22 du RGPD. Ils reflètent vos habitudes, pas votre santé.</p>
+
+<h2>15. Transferts hors de l'Union européenne</h2>
+<p>IE DIGITAL ne transfère aucune de vos données d'Essor. Seule l'adresse IP utilisée pour télécharger le fichier de configuration (section 6) est reçue par GitHub, Inc., aux États-Unis, qui adhère au cadre de protection des données UE–États-Unis (Data Privacy Framework). Les services d'Apple (achats, Siri, iCloud, Rappels) relèvent de la politique de confidentialité d'Apple.</p>
+
+<h2>16. Âge minimum</h2>
+<p>Essor est réservé aux personnes de 18 ans ou plus.</p>
+
+<h2>17. Évolution de cette politique</h2>
+<p>Toute modification importante vous sera signalée dans l'app avant de s'appliquer. La date de version figure en tête de cette page.</p>
+
+<h2>Mentions légales</h2>
+<ul>
+<li><b>Éditeur</b> : IE DIGITAL, SARL à associé unique, RCS Lille Métropole 822 744 116, TVA intracommunautaire FR42 822 744 116. Siège : 31 rue du Président Kennedy, 59237 Verlinghem, France. E-mail : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. Voir aussi les <a href="https://iedigital.fr/mentions-legales.html">mentions légales</a>.</li>
+<li><b>Directeur de la publication</b> : Alexandre Elard, gérant.</li>
+<li><b>Hébergeur de cette page</b> : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</li>
+<li><b>Distribution de l'application</b> : App Store, exploité par Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irlande.</li>
+</ul>
+""", "Politique de confidentialité de l'application Essor : aucune donnée transmise à l'éditeur, tout reste sur votre iPhone.")
+
 
 for slug, label in PAGES:
     body, desc = BODIES[slug]
@@ -698,6 +963,14 @@ for slug, label in PAGES:
         title = "Assistance — Forge Yourself"
     elif slug == "forge.html":
         title = "Forge Yourself — IE DIGITAL"
+    elif slug == "essor.html":
+        title = "Essor — IE DIGITAL"
+    elif slug == "essor-confidentialite.html":
+        title = "Confidentialité — Essor"
+    elif slug == "essor-assistance.html":
+        title = "Assistance — Essor"
+    elif slug == "essor-methode.html":
+        title = "Méthode de l'indice — Essor"
     else:
         title = f"{label} — IE DIGITAL"
     (OUT / slug).write_text(render(slug, title, desc, body), encoding="utf-8")
