@@ -12,6 +12,7 @@ PAGES = [
     ("applications.html", "Applications"),
     ("forge.html", "Forge Yourself"),
     ("essor.html", "Essor"),
+    ("vespra.html", "Vespra"),
     ("methode.html", "Méthode"),
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
@@ -21,6 +22,8 @@ PAGES = [
     ("essor-confidentialite.html", "Essor — Confidentialité"),
     ("essor-assistance.html", "Essor — Assistance"),
     ("essor-methode.html", "Essor — Méthode de l'indice"),
+    ("vespra-confidentialite.html", "Vespra — Confidentialité"),
+    ("vespra-assistance.html", "Vespra — Assistance"),
 ]
 
 HEAD = """<!doctype html>
@@ -81,7 +84,7 @@ def nav_for(current: str) -> str:
     for slug, label in PAGES:
         if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
                     "forge-assistance.html", "essor-confidentialite.html", "essor-assistance.html",
-                    "essor-methode.html"):
+                    "essor-methode.html", "vespra-confidentialite.html", "vespra-assistance.html"):
             continue
         # Les sous-pages d'une application allument l'entrée de l'application dans la navigation.
         actif = current
@@ -89,6 +92,8 @@ def nav_for(current: str) -> str:
             actif = "forge.html"
         elif current.startswith("essor-"):
             actif = "essor.html"
+        elif current.startswith("vespra-"):
+            actif = "vespra.html"
         cur = ' aria-current="page"' if slug == actif else ""
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
     return "\n".join(out)
@@ -285,6 +290,10 @@ de la première maquette à la fiche App Store, puis les maintient.</p>
   française le soir, un indice d'habitudes qui explique ses calculs. Sans compte ni
   collecte de données.</p>
   <p><a class="more" href="essor.html">Essor : présentation, assistance, confidentialité</a></p>
+  <p>Vespra, application iOS du soir et de la nuit&nbsp;: un geste pour mieux préparer
+  son coucher, puis l'écoute des ronflements de la nuit, analysée sur l'iPhone. Sans
+  compte ni collecte de données, achat unique sans abonnement.</p>
+  <p><a class="more" href="vespra.html">Vespra : présentation, assistance, confidentialité</a></p>
 </section>
 
 <section>
@@ -954,6 +963,166 @@ BODIES["essor-confidentialite.html"] = ("""
 """, "Politique de confidentialité de l'application Essor : aucune donnée transmise à l'éditeur, tout reste sur votre iPhone.")
 
 
+# ---------------------------------------------------------- Vespra · section
+# Les URL vespra-confidentialite.html et vespra-assistance.html sont inscrites
+# dans l'app (Moi › À propos) et dans App Store Connect : ne jamais les renommer.
+# Les mentions « dispositif médical » ont été relues côté réglementaire (MDR) :
+# ne pas les reformuler sans nouvelle relecture.
+BODIES["vespra.html"] = ("""
+<p class="eyebrow">Application iOS</p>
+<h1>Vespra</h1>
+<p class="lede">Ton soir, puis l'écoute. Un seul geste pour préparer le coucher, et le
+relevé des ronflements de la nuit, analysé sur l'iPhone.</p>
+
+<section>
+  <h2>En bref</h2>
+  <dl class="facts">
+    <div><dt>Plateforme</dt><dd>iPhone, iOS 18 et plus.</dd></div>
+    <div><dt>Compte</dt><dd>Aucun. Pas de serveur Vespra, pas de publicité, pas de traceur.</dd></div>
+    <div><dt>Données</dt><dd>Analysées et conservées sur l'iPhone, exclues de la sauvegarde iCloud. Effacement depuis l'app.</dd></div>
+    <div><dt>Formule</dt><dd>Trois nuits d'écoute gratuites, puis un achat unique, sans abonnement.</dd></div>
+    <div><dt>Nature</dt><dd>Vespra n'est pas un dispositif médical au sens du règlement (UE) 2017/745. Elle n'est destinée ni au diagnostic, ni à la prévention, ni à la surveillance d'une maladie. Les sons relevés ne sont pas interprétés. Pour toute question sur votre sommeil, consultez un médecin.</dd></div>
+    <div><dt>Éditeur</dt><dd>IE DIGITAL</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>Aide et informations</h2>
+  <ul>
+    <li><a href="vespra-assistance.html">Assistance et questions fréquentes</a></li>
+    <li><a href="vespra-confidentialite.html">Politique de confidentialité</a></li>
+    <li><a href="mailto:contact@iedigital.fr?subject=Vespra%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
+  </ul>
+</section>
+""", "Vespra, application iOS éditée par IE DIGITAL : un geste le soir, l'écoute des ronflements la nuit, analysée sur l'iPhone. Assistance et confidentialité.")
+
+BODIES["vespra-assistance.html"] = ("""
+<p class="eyebrow"><a href="vespra.html">Vespra</a></p>
+<h1>Assistance</h1>
+<p class="lede">Vespra, application iOS · IE DIGITAL</p>
+
+<p class="note"><b>Nous écrire : <a href="mailto:contact@iedigital.fr?subject=Vespra%20%E2%80%94%20assistance">contact@iedigital.fr</a></b><br>
+Réponse sous 3 jours ouvrés. Indiquez le modèle de votre iPhone et la version d'iOS. N'envoyez jamais d'extrait audio ni d'export de vos nuits.</p>
+
+<section class="faq">
+<h2>Questions fréquentes</h2>
+
+<details>
+<summary>Faut-il créer un compte ?</summary>
+<p>Non. Vespra fonctionne sans compte et sans serveur. Tout est analysé et conservé sur votre iPhone. Détails dans la <a href="vespra-confidentialite.html">politique de confidentialité</a>.</p>
+</details>
+
+<details>
+<summary>L'écoute démarre-t-elle toute seule ?</summary>
+<p>Non. iOS ne permet pas à une app d'ouvrir le micro sans vous. Le soir, ouvrez l'onglet <i>La nuit</i>, touchez <i>Armer la nuit</i>, puis posez l'iPhone face vers le bas, branché si possible. Le matin, touchez <i>Arrêter l'écoute</i>.</p>
+</details>
+
+<details>
+<summary>Que relève Vespra pendant la nuit ?</summary>
+<p>Deux types de sons : les ronflements (avec leur durée) et les silences de 10 secondes ou plus entre deux sons captés. Vespra garde des extraits de 20 secondes pour que vous puissiez les réécouter ; ils s'effacent seuls au bout de 30 jours. Vespra ne mesure ni la respiration ni la santé, et n'interprète pas ces sons.</p>
+</details>
+
+<details>
+<summary>Nous dormons à deux</summary>
+<p>Activez <i>Nous sommes deux ce soir</i> avant d'armer la nuit. Vespra ne sait pas de qui viennent les sons et l'indique sur le relevé de la nuit.</p>
+</details>
+
+<details>
+<summary>Une écoute très courte ne compte pas</summary>
+<p>Une écoute de moins d'une heure est considérée comme un essai : elle n'utilise pas une de vos trois nuits gratuites et n'apparaît pas dans votre historique.</p>
+</details>
+
+<details>
+<summary>Comment changer d'iPhone ?</summary>
+<p>Les données de Vespra ne partent pas dans la sauvegarde iCloud : c'est un choix de confidentialité. Avant de changer d'iPhone, exportez vos nuits depuis <i>Moi › Exporter mes nuits</i> (PDF) ou <i>Exporter le journal</i>. Votre achat se restaure sur le nouvel iPhone avec <i>Restaurer mon achat</i>, sur le même identifiant Apple.</p>
+</details>
+
+<details>
+<summary>Comment fonctionne l'achat ?</summary>
+<p>Trois nuits d'écoute sont gratuites. Ensuite, un achat unique débloque Vespra définitivement : pas d'abonnement, rien ne se renouvelle. Les remboursements sont gérés par Apple sur <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+</details>
+
+<details>
+<summary>Comment tout effacer ?</summary>
+<p><i>Moi › Tout effacer</i>, puis confirmez. Toutes les données et tous les extraits audio de Vespra sur l'iPhone sont supprimés. Supprimer l'app a le même effet. Les fichiers que vous avez exportés ou partagés restent là où vous les avez envoyés.</p>
+</details>
+
+<details>
+<summary>Vespra remplace-t-elle un avis médical ?</summary>
+<p>Non. Vespra n'est pas un dispositif médical : elle décrit des sons, ne les interprète pas et ne pose aucun diagnostic. Pour toute question sur votre sommeil, consultez un médecin.</p>
+</details>
+</section>
+""", "Assistance de l'application Vespra : écoute de nuit, achat unique, changement d'iPhone, effacement, contact.")
+
+BODIES["vespra-confidentialite.html"] = ("""
+<p class="eyebrow"><a href="vespra.html">Vespra</a></p>
+<h1>Politique de confidentialité</h1>
+<p class="lede">Vespra, application iOS · version du 6 octobre 2026</p>
+
+<div class="note" style="margin-bottom:32px">
+<p style="margin:0"><b>En bref.</b> Vespra n'a ni compte, ni serveur, ni outil de mesure d'audience, ni publicité. Le son de votre chambre est analysé sur votre iPhone et n'est jamais envoyé. Ce que Vespra conserve reste sur l'iPhone, exclu de la sauvegarde iCloud. IE DIGITAL, l'éditeur, ne reçoit aucune de vos données et ne peut pas y accéder. Vous pouvez tout effacer à tout moment, depuis l'app.</p>
+</div>
+
+<h2>1. Qui est responsable</h2>
+<p>L'éditeur de Vespra est <b>IE DIGITAL</b>, SARL à associé unique immatriculée au RCS de Lille Métropole sous le numéro 822 744 116, dont le siège est au 31 rue du Président Kennedy, 59237 Verlinghem, France. Directeur de la publication : Alexandre Elard, gérant. Contact : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. IE DIGITAL ne reçoit aucune donnée issue de l'application et n'a pas désigné de délégué à la protection des données ; pour toute question, écrivez à cette adresse.</p>
+
+<h2>2. Le microphone</h2>
+<p>Quand vous armez une nuit, Vespra écoute la chambre avec le microphone de l'iPhone, jusqu'à ce que vous arrêtiez l'écoute. Le son est analysé en continu, sur l'iPhone, pour noter deux types de sons : les ronflements et les silences de 10 secondes ou plus entre deux sons captés. Aucun son n'est envoyé : Vespra n'a pas de serveur.</p>
+<p>Seuls des extraits de 20 secondes autour de ces sons sont enregistrés, pour que vous puissiez les réécouter. Ils sont supprimés automatiquement au bout de 30 jours. Le reste du son n'est jamais enregistré.</p>
+<p>Si une autre personne dort dans la pièce, ses sons peuvent être captés. Vespra ne sait pas de qui viennent les sons. Prévenez-la avant d'armer la nuit.</p>
+
+<h2>3. Les données conservées sur l'iPhone</h2>
+<ul>
+<li><b>Extraits audio de 20 secondes</b> : réécoute. Supprimés au bout de 30 jours.</li>
+<li><b>Journal des nuits</b> (heures de début et de fin, horaires et durées des ronflements et des silences, interruptions, niveau de batterie, présence de deux personnes) : afficher vos nuits et votre historique. Aucun son.</li>
+<li><b>Réglages et réponses</b> (heure de lever, heure de coucher visée, geste du soir, réponses du soir et du matin, sujet de l'essai « Soir → nuit ») : préparer votre soirée et comparer vos soirs.</li>
+<li><b>Réglages des rappels</b> : envoyer les notifications que vous avez choisies.</li>
+</ul>
+<p>Les sons de votre nuit (ronflements, silences) peuvent révéler des informations sur votre santé. Ils sont analysés et conservés uniquement sur votre iPhone. IE DIGITAL n'y a jamais accès et ne les reçoit pas.</p>
+<p>Vespra ne vous demande ni nom, ni adresse électronique, ni numéro de téléphone, et n'utilise pas Apple Santé.</p>
+
+<h2>4. Ce qui peut sortir de l'app</h2>
+<p>IE DIGITAL ne reçoit rien. Les flux ci-dessous n'existent que si vous utilisez la fonction concernée.</p>
+<ul>
+<li><b>Exports.</b> L'export de vos nuits (PDF) et du journal (fichier JSON) ne sortent que si vous les partagez vous-même avec la feuille de partage d'iOS. Vous choisissez seul à qui les envoyer ; une fois partagés, ils relèvent du service choisi.</li>
+<li><b>Achat.</b> L'achat unique est traité par Apple. IE DIGITAL ne reçoit ni votre identité ni vos moyens de paiement, seulement des statistiques de ventes non nominatives.</li>
+<li><b>Notifications.</b> Les rappels du soir et du matin sont programmés sur l'iPhone, sans serveur.</li>
+<li><b>Fichiers.</b> Le journal des nuits est visible dans l'app Fichiers, dans le dossier de Vespra sur l'iPhone.</li>
+</ul>
+
+<h2>5. Mesure d'audience, publicité, traceurs, intelligence artificielle</h2>
+<p>Vespra ne contient aucun outil de mesure d'audience, aucune publicité, aucun traceur, aucun kit tiers et aucun service d'intelligence artificielle. Si vous avez accepté dans iOS de partager vos analyses avec les développeurs, Apple peut transmettre à IE DIGITAL des rapports de plantage et des statistiques non nominatives ; vous pouvez modifier ce choix dans <i>Réglages › Confidentialité et sécurité › Analyse et améliorations</i>.</p>
+
+<h2>6. Sécurité et sauvegarde</h2>
+<p>Les données de Vespra sont protégées par le chiffrement d'iOS et exclues de la sauvegarde iCloud. Conséquence : si vous perdez ou changez d'iPhone sans avoir exporté vos nuits, elles sont perdues.</p>
+
+<h2>7. Durée de conservation et effacement</h2>
+<ul>
+<li>Extraits audio : 30 jours, puis suppression automatique.</li>
+<li>Journal, réglages et réponses : sur votre iPhone, jusqu'à ce que vous les effaciez.</li>
+<li><i>Moi › Tout effacer</i> supprime toutes les données et tous les extraits de Vespra ; supprimer l'app a le même effet.</li>
+<li>Les courriels échangés avec IE DIGITAL sont conservés au plus 3 ans après le dernier échange.</li>
+</ul>
+
+<h2>8. Vos droits</h2>
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition. Comme IE DIGITAL ne détient aucune de vos données de Vespra, vous les exercez directement dans l'app (export, « Tout effacer »). Pour toute autre demande, écrivez à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> ; une réponse vous sera apportée sous un mois. Vous pouvez introduire une réclamation auprès de la CNIL, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
+
+<h2>9. Nature de l'application</h2>
+<p>Vespra n'est pas un dispositif médical : elle décrit des sons sans les interpréter (voir la <a href="vespra.html">présentation</a>). Elle ne prend aucune décision vous concernant au sens de l'article 22 du RGPD.</p>
+
+<h2>10. Évolution de cette politique</h2>
+<p>Toute modification importante vous sera signalée dans l'app avant de s'appliquer. La date de version figure en tête de cette page.</p>
+
+<h2>Mentions légales</h2>
+<ul>
+<li><b>Éditeur</b> : IE DIGITAL, SARL à associé unique, RCS Lille Métropole 822 744 116, TVA intracommunautaire FR42 822 744 116. Siège : 31 rue du Président Kennedy, 59237 Verlinghem, France. E-mail : <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. Voir aussi les <a href="https://iedigital.fr/mentions-legales.html">mentions légales</a>.</li>
+<li><b>Directeur de la publication</b> : Alexandre Elard, gérant.</li>
+<li><b>Hébergeur de cette page</b> : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</li>
+<li><b>Distribution de l'application</b> : App Store, exploité par Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irlande.</li>
+</ul>
+""", "Politique de confidentialité de l'application Vespra : aucune donnée transmise à l'éditeur, le son est analysé et conservé sur votre iPhone.")
+
+
 for slug, label in PAGES:
     body, desc = BODIES[slug]
     if slug == "index.html":
@@ -970,6 +1139,12 @@ for slug, label in PAGES:
         title = "Confidentialité — Essor"
     elif slug == "essor-assistance.html":
         title = "Assistance — Essor"
+    elif slug == "vespra.html":
+        title = "Vespra — IE DIGITAL"
+    elif slug == "vespra-confidentialite.html":
+        title = "Confidentialité — Vespra"
+    elif slug == "vespra-assistance.html":
+        title = "Assistance — Vespra"
     elif slug == "essor-methode.html":
         title = "Méthode de l'indice — Essor"
     else:
