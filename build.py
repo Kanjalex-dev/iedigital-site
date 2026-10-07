@@ -29,25 +29,28 @@ PAGES = [
 ]
 
 HEAD = """<!doctype html>
-<html lang="fr">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="canonical" href="https://{domain}/{slug}">
+<link rel="canonical" href="https://{domain}/{canon}">
+<link rel="alternate" hreflang="fr" href="https://{domain}/{slug}">
+<link rel="alternate" hreflang="en" href="https://{domain}/en/{slug}">
+<link rel="alternate" hreflang="x-default" href="https://{domain}/{slug}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="{root}assets/style.css">
+<link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{root}assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 </head>
 <body>
 <div class="shell">
 <header class="rail">
-  <a class="wordmark" href="index.html" aria-label="IE DIGITAL, accueil">
+  <a class="wordmark" href="index.html" aria-label="{t_home}">
     <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <rect x="4"  y="4"    width="4" height="24" fill="currentColor"></rect>
       <rect x="11" y="7"    width="4" height="18" fill="currentColor"></rect>
@@ -56,11 +59,12 @@ HEAD = """<!doctype html>
     </svg>
     <span>IE DIGITAL</span>
   </a>
-  <nav aria-label="Navigation principale">
+  <nav aria-label="{t_nav}">
 {nav}
+    <a class="lang" href="{switch_href}" hreflang="{switch_lang}" lang="{switch_lang}">{switch_label}</a>
   </nav>
   <div class="rail-foot">
-    <p>Conseil produit<br>Applications mobiles</p>
+    <p>{t_foot1}</p>
     <p>Lille<br>{mail}</p>
   </div>
 </header>
@@ -71,7 +75,7 @@ HEAD = """<!doctype html>
 FOOT = """
 <footer class="foot">
   <p class="legal">IE DIGITAL, SARL &middot; SIREN 822&nbsp;744&nbsp;116</p>
-  <p><a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> &middot; <a href="mentions-legales.html">Mentions légales</a></p>
+  <p><a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> &middot; <a href="mentions-legales.html">{t_legal}</a></p>
 </footer>
 </article>
 </main>
@@ -81,7 +85,23 @@ FOOT = """
 """
 
 
-def nav_for(current: str) -> str:
+LABELS_EN = {
+    "index.html": "Home", "expertises.html": "Product consulting", "applications.html": "Apps",
+    "forge.html": "Forge Yourself", "essor.html": "Essor", "vespra.html": "Vespra",
+    "methode.html": "Method", "a-propos.html": "About", "contact.html": "Contact",
+    "mentions-legales.html": "Legal notice",
+}
+UI = {
+    "fr": dict(t_home="IE DIGITAL, accueil", t_nav="Navigation principale",
+               t_foot1="Conseil produit<br>Applications mobiles", t_legal="Mentions légales",
+               switch_label="English", switch_lang="en"),
+    "en": dict(t_home="IE DIGITAL, home", t_nav="Main navigation",
+               t_foot1="Product consulting<br>Mobile apps", t_legal="Legal notice",
+               switch_label="Français", switch_lang="fr"),
+}
+
+
+def nav_for(current: str, lang: str = "fr") -> str:
     out = []
     for slug, label in PAGES:
         if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
@@ -98,15 +118,34 @@ def nav_for(current: str) -> str:
         elif current.startswith("vespra-"):
             actif = "vespra.html"
         cur = ' aria-current="page"' if slug == actif else ""
+        if lang == "en":
+            label = LABELS_EN.get(slug, label)
         out.append(f'    <a href="{slug}"{cur}>{label}</a>')
     return "\n".join(out)
 
 
-def render(slug: str, title: str, desc: str, body: str) -> str:
-    head = HEAD.format(title=title, desc=desc, domain=DOMAIN,
-                       slug="" if slug == "index.html" else slug,
-                       nav=nav_for(slug), mail=MAIL)
-    return head + body.strip() + "\n" + FOOT
+def render(slug: str, title: str, desc: str, body: str, lang: str = "fr") -> str:
+    page = "" if slug == "index.html" else slug
+    # Les pages Vespra anglaises historiques (déclarées dans App Store Connect)
+    # basculent vers leur équivalent français.
+    twin = {"vespra-privacy.html": "vespra-confidentialite.html",
+            "vespra-support.html": "vespra-assistance.html"}.get(slug, slug)
+    ui = dict(UI[lang])
+    canon = ("en/" + page) if lang == "en" else page
+    if twin != slug:
+        canon = "en/" + twin
+        switch_href = twin
+        ui.update(switch_label="Français", switch_lang="fr")
+    elif lang == "en":
+        switch_href = "../" + ("" if twin == "index.html" else twin)
+    else:
+        switch_href = "en/" + ("" if twin == "index.html" else twin)
+    head = HEAD.format(title=title, desc=desc, domain=DOMAIN, lang=lang,
+                       slug="" if twin == "index.html" else twin, canon=canon,
+                       root="../" if lang == "en" else "",
+                       nav=nav_for(slug, lang), mail=MAIL, switch_href=switch_href,
+                       **ui)
+    return head + body.strip() + "\n" + FOOT.replace("{t_legal}", UI[lang]["t_legal"])
 
 
 BODIES = {}
@@ -1308,3 +1347,28 @@ for slug, label in PAGES:
     print(f"{slug:24} {label}")
 
 print("\nSite généré dans", OUT)
+
+
+# ---------------------------------------------------------- version anglaise
+# Chaque page française a sa traduction dans content-en/<page>.html (ligne 1 :
+# <!-- desc: ... -->). Elles sont publiées sous /en/ avec les mêmes noms.
+TITLES_EN = {
+    "index.html": "IE DIGITAL", "forge.html": "Forge Yourself — IE DIGITAL",
+    "essor.html": "Essor — IE DIGITAL", "vespra.html": "Vespra — IE DIGITAL",
+    "forge-confidentialite.html": "Privacy — Forge Yourself", "forge-assistance.html": "Support — Forge Yourself",
+    "essor-confidentialite.html": "Privacy — Essor", "essor-assistance.html": "Support — Essor",
+    "essor-methode.html": "How the index works — Essor",
+    "vespra-confidentialite.html": "Privacy — Vespra", "vespra-assistance.html": "Support — Vespra",
+}
+import re as _re
+(OUT / "en").mkdir(exist_ok=True)
+for slug, label in PAGES:
+    src = OUT / "content-en" / slug
+    if not src.exists():
+        continue
+    raw = src.read_text(encoding="utf-8")
+    m = _re.match(r"<!-- desc: (.*?) -->\n", raw)
+    desc, body = (m.group(1), raw[m.end():]) if m else ("", raw)
+    title = TITLES_EN.get(slug, f"{LABELS_EN.get(slug, label)} — IE DIGITAL")
+    (OUT / "en" / slug).write_text(render(slug, title, desc, body, "en"), encoding="utf-8")
+    print(f"en/{slug:21} {title}")
