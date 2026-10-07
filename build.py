@@ -1238,6 +1238,7 @@ BODIES["vespra-privacy.html"] = ("""
 
 <h2>5. Analytics, advertising, trackers, artificial intelligence</h2>
 <p>Vespra contains no analytics, no advertising, no trackers, no third-party SDK and no artificial intelligence service. If you agreed in iOS to share analytics with developers, Apple may send IE DIGITAL crash reports and anonymous statistics; you can change this in <i>Settings › Privacy &amp; Security › Analytics &amp; Improvements</i>.</p>
+<p><b>Consumer Health Data: none collected.</b> IE DIGITAL does not collect, share or sell consumer health data, including within the meaning of Washington's My Health My Data Act (RCW 19.373) and similar U.S. state laws. Anything the app notes about your nights stays on your iPhone and is never sent to IE DIGITAL.</p>
 
 <h2>6. Security and backup</h2>
 <p>Vespra's data is protected by iOS encryption and excluded from iCloud backup. As a result, if you lose or change your iPhone without exporting your nights, they are lost.</p>
