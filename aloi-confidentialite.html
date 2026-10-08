@@ -53,7 +53,7 @@
 <p class="lede">Aloi, application iOS · version du 8 octobre 2026</p>
 
 <div class="note" style="margin-bottom:32px">
-<p style="margin:0"><b>En bref.</b> Aloi n'a ni compte, ni serveur, ni connexion bancaire, ni outil de mesure d'audience, ni publicité. Les informations que vous saisissez (contrats, frais, biens, crédits, profil) sont enregistrées sur votre iPhone. IE DIGITAL, l'éditeur, ne reçoit aucune de ces données et ne peut pas y accéder. Si vous activez la synchronisation iCloud, elles sont copiées dans votre propre espace iCloud, géré par Apple. Vous pouvez exporter ou effacer vos données à tout moment.</p>
+<p style="margin:0"><b>En bref.</b> Aloi n'a ni compte, ni serveur, ni connexion bancaire, ni outil de mesure d'audience, ni publicité. Rien ne part sur le réseau sans un geste de votre part. Les informations que vous saisissez (contrats, frais, biens, crédits, profil) sont enregistrées sur votre iPhone. IE DIGITAL, l'éditeur, ne reçoit aucune de ces données et ne peut pas y accéder. Si vous activez la synchronisation iCloud, elles sont copiées dans votre propre espace iCloud, géré par Apple. Vous pouvez exporter ou effacer vos données à tout moment.</p>
 </div>
 
 <h2>1. Qui est responsable</h2>
@@ -62,7 +62,7 @@
 <h2>2. Les données utilisées par Aloi</h2>
 <ul>
 <li><b>Vos contrats et comptes</b> (nom, établissement, enveloppe, mode de gestion, encours, frais, date d'ouverture, documents que vous importez) : calculer les frais, la note et les comparaisons. Sur l'iPhone.</li>
-<li><b>Vos biens immobiliers et crédits</b> (valeur, surface, commune, loyers, charges, capital restant dû, taux) : calculer la valeur nette, le cash-flow et les simulations. Sur l'iPhone.</li>
+<li><b>Vos biens immobiliers et crédits</b> (valeur, surface, nature du bien, commune choisie dans une liste, loyers, charges, capital restant dû, taux) : calculer la valeur nette, le cash-flow, les simulations et la valeur de marché indicative. Sur l'iPhone. Aloi ne demande jamais d'adresse.</li>
 <li><b>Votre profil facultatif</b> (prénom, année de naissance, horizon, dépenses, revenus, tolérance au risque, nom de votre société) : adapter les projections et la réserve de sécurité. Sur l'iPhone. Il n'intervient jamais dans le classement des contrats du marché.</li>
 <li><b>Relevés datés</b> (instantanés de votre patrimoine) : tracer l'historique. Sur l'iPhone.</li>
 <li><b>Réglages</b> (univers personnel ou société, mode discret, options d'affichage) : sur l'iPhone.</li>
@@ -83,6 +83,7 @@
 <li><b>Explications en langage simple.</b> Elles sont rédigées sur l'iPhone par le modèle d'Apple intégré à iOS, sans envoi de vos données à un service extérieur.</li>
 <li><b>Lecture de documents.</b> Les PDF et photos de relevés que vous importez sont lus sur l'iPhone ; ils ne sont envoyés nulle part.</li>
 <li><b>Partages et exports.</b> L'image de partage (note, rang, verdict, sans montant) et l'export de vos données ne sortent que si vous les partagez vous-même avec la feuille de partage d'iOS. Une fois partagés, ils relèvent du service que vous avez choisi.</li>
+<li><b>Ventes comparables (facultatif).</b> Les prix médians par commune et les loyers de marché sont intégrés à l'app : les consulter n'envoie rien. Si vous demandez les ventes comparables d'un bien, Aloi vous montre d'abord ce qui sera téléchargé. Un premier geste de votre part lit la taille du fichier public des ventes de votre département sur data.gouv.fr ; un second lance le téléchargement. Le serveur de data.gouv.fr reçoit alors, comme pour tout téléchargement, votre adresse IP et le département demandé, jamais l'adresse ni la commune du bien. La recherche se fait ensuite sur l'iPhone. Le fichier se supprime dans <i>Réglages › Vos données</i>. Aucune requête n'est envoyée avant votre premier geste.</li>
 <li><b>Liens vers des sources.</b> Quand vous ouvrez un lien (source d'un tarif, site d'un établissement), le site consulté reçoit votre adresse IP selon sa propre politique.</li>
 </ul>
 
@@ -96,7 +97,7 @@
 <ul>
 <li><b>Export</b> : vos données dans un fichier lisible (.json) ou chiffré (.aloi) avec un mot de passe que vous choisissez. IE DIGITAL ne connaît pas ce mot de passe et ne peut pas le récupérer.</li>
 <li><b>Import</b> : le fichier se réimporte dans Aloi.</li>
-<li><b>Effacement</b> : supprimer un élément dans l'app l'efface ; désinstaller l'app efface toutes ses données sur l'iPhone. Les données synchronisées se suppriment aussi de votre iCloud depuis <i>Réglages › [votre nom] › iCloud › Gérer le stockage</i>.</li>
+<li><b>Effacement</b> : supprimer un élément dans l'app l'efface ; <i>Réglages › Effacer toutes mes données</i> remet Aloi dans l'état d'une première installation (profil, contrats, biens, objectifs, relevés, documents joints, préférences et ventes téléchargées) ; désinstaller l'app efface aussi toutes ses données sur l'iPhone. Les données synchronisées se suppriment aussi de votre iCloud depuis <i>Réglages › [votre nom] › iCloud › Gérer le stockage</i>.</li>
 </ul>
 
 <h2>8. Durée de conservation</h2>
@@ -113,13 +114,13 @@
 <p>Les notes, rangs et classements d'Aloi sont des calculs faits sur votre iPhone (voir la <a href="aloi-methode.html">méthode</a>). Ils n'entraînent aucune décision produisant des effets juridiques à votre égard ou vous affectant de manière significative, au sens de l'article 22 du RGPD.</p>
 
 <h2>11. Transferts hors de l'Union européenne</h2>
-<p>IE DIGITAL ne transfère aucune de vos données d'Aloi. Les services d'Apple (iCloud, achats) relèvent de la politique de confidentialité d'Apple.</p>
+<p>IE DIGITAL ne transfère aucune de vos données d'Aloi. Le téléchargement facultatif des ventes comparables s'adresse à data.gouv.fr (État français), dont les fichiers sont servis depuis un hébergeur situé dans l'Union européenne. Les services d'Apple (iCloud, achats) relèvent de la politique de confidentialité d'Apple.</p>
 
 <h2>12. Ce qu'est Aloi</h2>
 <p>Aloi est un outil de calcul, de diagnostic et de comparaison de frais. Il ne fournit ni conseil en investissement, ni conseil en assurance, ni recommandation personnalisée. Il ne vend aucun produit, ne perçoit aucune commission et ne propose aucun lien de souscription. IE DIGITAL n'est ni conseiller en investissements financiers, ni intermédiaire en assurance, ni intermédiaire en opérations de banque. Avant toute décision, informez-vous auprès d'un professionnel habilité.</p>
 
 <h2>13. Évolution de cette politique</h2>
-<p>Toute modification importante vous sera signalée dans l'app avant de s'appliquer, en particulier avant l'ajout de toute fonction qui se connecterait à Internet. La date de version figure en tête de cette page.</p>
+<p>Toute modification importante vous sera signalée dans l'app avant de s'appliquer, en particulier avant l'ajout de toute nouvelle fonction qui se connecterait à Internet. La seule fonction qui se connecte aujourd'hui, à votre demande, est le téléchargement des ventes comparables décrit au point 4. La date de version figure en tête de cette page.</p>
 
 <h2>Mentions légales</h2>
 <ul>
