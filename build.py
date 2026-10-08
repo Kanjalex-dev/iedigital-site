@@ -104,6 +104,8 @@ UI = {
 def nav_for(current: str, lang: str = "fr") -> str:
     out = []
     for slug, label in PAGES:
+        if slug.startswith("aloi-") or (lang == "en" and slug.startswith("aloi")):
+            continue
         if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
                     "forge-assistance.html", "essor-confidentialite.html", "essor-assistance.html",
                     "essor-methode.html", "vespra-confidentialite.html", "vespra-assistance.html",
@@ -117,6 +119,8 @@ def nav_for(current: str, lang: str = "fr") -> str:
             actif = "essor.html"
         elif current.startswith("vespra-"):
             actif = "vespra.html"
+        elif current.startswith("aloi-"):
+            actif = "aloi.html"
         cur = ' aria-current="page"' if slug == actif else ""
         if lang == "en":
             label = LABELS_EN.get(slug, label)
@@ -1310,9 +1314,17 @@ BODIES["vespra-privacy.html"] = ("""
 """, "Privacy policy for the Vespra iOS app: no data sent to the publisher; sound is processed and stored on your iPhone.")
 
 
+# --------------------------------------------------------------- Aloi
+exec((OUT / "pages_aloi.py").read_text(encoding="utf-8"))
+_i = [s for s, _ in PAGES].index("methode.html")
+PAGES[_i:_i] = ALOI_PAGES
+BODIES.update(ALOI_BODIES)
+
 for slug, label in PAGES:
     body, desc = BODIES[slug]
-    if slug == "index.html":
+    if slug in ALOI_TITRES:
+        title = ALOI_TITRES[slug]
+    elif slug == "index.html":
         title = "IE DIGITAL"
     elif slug == "forge-confidentialite.html":
         title = "Confidentialité — Forge Yourself"
