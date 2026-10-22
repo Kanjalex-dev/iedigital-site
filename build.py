@@ -10,15 +10,15 @@ PAGES = [
     ("index.html", "Accueil"),
     ("expertises.html", "Conseil produit"),
     ("applications.html", "Applications"),
-    ("forge.html", "Forge Yourself"),
+    ("ferralis.html", "Ferralis"),
     ("essor.html", "Essor"),
     ("vespra.html", "Vespra"),
     ("methode.html", "Méthode"),
     ("a-propos.html", "À propos"),
     ("contact.html", "Contact"),
     ("mentions-legales.html", "Mentions légales"),
-    ("forge-confidentialite.html", "Forge — Confidentialité"),
-    ("forge-assistance.html", "Forge — Assistance"),
+    ("ferralis-confidentialite.html", "Ferralis — Confidentialité"),
+    ("ferralis-assistance.html", "Ferralis — Assistance"),
     ("essor-confidentialite.html", "Essor — Confidentialité"),
     ("essor-assistance.html", "Essor — Assistance"),
     ("essor-methode.html", "Essor — Méthode de l'indice"),
@@ -87,7 +87,7 @@ FOOT = """
 
 LABELS_EN = {
     "index.html": "Home", "expertises.html": "Product consulting", "applications.html": "Apps",
-    "forge.html": "Forge Yourself", "essor.html": "Essor", "vespra.html": "Vespra",
+    "ferralis.html": "Ferralis", "essor.html": "Essor", "vespra.html": "Vespra",
     "methode.html": "Method", "a-propos.html": "About", "contact.html": "Contact",
     "mentions-legales.html": "Legal notice",
 }
@@ -106,15 +106,15 @@ def nav_for(current: str, lang: str = "fr") -> str:
     for slug, label in PAGES:
         if slug.startswith("aloi-") or (lang == "en" and slug.startswith("aloi")):
             continue
-        if slug in ("index.html", "mentions-legales.html", "forge-confidentialite.html",
-                    "forge-assistance.html", "essor-confidentialite.html", "essor-assistance.html",
+        if slug in ("index.html", "mentions-legales.html", "ferralis-confidentialite.html",
+                    "ferralis-assistance.html", "essor-confidentialite.html", "essor-assistance.html",
                     "essor-methode.html", "vespra-confidentialite.html", "vespra-assistance.html",
                     "vespra-privacy.html", "vespra-support.html"):
             continue
         # Les sous-pages d'une application allument l'entrée de l'application dans la navigation.
         actif = current
-        if current.startswith("forge-"):
-            actif = "forge.html"
+        if current.startswith("ferralis-"):
+            actif = "ferralis.html"
         elif current.startswith("essor-"):
             actif = "essor.html"
         elif current.startswith("vespra-"):
@@ -219,7 +219,7 @@ construire. Celui qui vous répond est celui qui fait le travail.</p>
     corrections, évolutions.</dd></div>
   </dl>
   <p class="note">Application en cours de développement&nbsp;:
-  <strong>Forge Yourself</strong>, application iOS de musculation, écrite en SwiftUI,
+  <strong>Ferralis</strong>, application iOS de musculation, écrite en SwiftUI,
   avec abonnement intégré, liaison avec l'app Santé et aucune donnée collectée. Elle
   n'est pas encore publiée&nbsp;; elle le sera par IE DIGITAL.</p>
   <p><a class="more" href="applications.html">Le détail de l'offre</a></p>
@@ -327,11 +327,11 @@ de la première maquette à la fiche App Store, puis les maintient.</p>
 
 <section>
   <h2>En cours de développement</h2>
-  <p>Forge Yourself, application iOS de musculation&nbsp;: séances, charges et
+  <p>Ferralis, application iOS de musculation&nbsp;: séances, charges et
   mensurations, liaison avec l'app Santé, abonnement intégré. Écrite en SwiftUI, sans
   compte ni collecte de données. Elle n'est pas encore publiée&nbsp;; elle le sera par
   IE DIGITAL.</p>
-  <p><a class="more" href="forge.html">Forge Yourself : présentation, assistance, confidentialité</a></p>
+  <p><a class="more" href="ferralis.html">Ferralis : présentation, assistance, confidentialité</a></p>
   <p>Essor, application iOS de bien-être&nbsp;: trois gestes par jour, une recette
   française le soir, un indice d'habitudes qui explique ses calculs. Sans compte ni
   collecte de données.</p>
@@ -563,14 +563,14 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 </section>
 """, "Informations légales d'IE DIGITAL : éditeur, hébergement, propriété intellectuelle et données personnelles.")
 
-# ---------------------------------------------------------- Forge · section
-# Section de l'application Forge Yourself : présentation, assistance,
-# confidentialité. Les URL forge-assistance.html et forge-confidentialite.html
+# ---------------------------------------------------------- Ferralis · section
+# Section de l'application Ferralis : présentation, assistance,
+# confidentialité. Les URL ferralis-assistance.html et ferralis-confidentialite.html
 # sont déclarées dans App Store Connect : ne jamais les renommer.
-BODIES["forge.html"] = ("""
+BODIES["ferralis.html"] = ("""
 <p class="eyebrow">Application iOS</p>
-<h1>Forge Yourself</h1>
-<p class="lede">Programme de musculation et suivi de force. Forge construit ton programme
+<h1>Ferralis</h1>
+<p class="lede">Programme de musculation et suivi de force. Ferralis construit ton programme
 sur ton matériel, ton niveau et tes jours, puis règle la charge de chaque exercice
 séance après séance, d'après ce que tu déclares.</p>
 
@@ -578,7 +578,7 @@ séance après séance, d'après ce que tu déclares.</p>
   <h2>En bref</h2>
   <dl class="facts">
     <div><dt>Plateforme</dt><dd>iPhone, iOS 17 et plus. En préparation, pas encore publiée sur l'App Store.</dd></div>
-    <div><dt>Compte</dt><dd>Aucun. Pas de serveur Forge, pas de publicité, pas de traceur.</dd></div>
+    <div><dt>Compte</dt><dd>Aucun. Pas de serveur Ferralis, pas de publicité, pas de traceur.</dd></div>
     <div><dt>Données</dt><dd>Enregistrées sur l'iPhone. Export d'une sauvegarde à tout moment.</dd></div>
     <div><dt>Formules</dt><dd>Carnet du jour gratuit ; programme, progression automatique et historique avec l'abonnement.</dd></div>
     <div><dt>Éditeur</dt><dd>IE DIGITAL</dd></div>
@@ -588,19 +588,19 @@ séance après séance, d'après ce que tu déclares.</p>
 <section>
   <h2>Aide et informations</h2>
   <ul>
-    <li><a href="forge-assistance.html">Assistance et questions fréquentes</a></li>
-    <li><a href="forge-confidentialite.html">Politique de confidentialité</a></li>
-    <li><a href="mailto:contact@iedigital.fr?subject=Forge%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
+    <li><a href="ferralis-assistance.html">Assistance et questions fréquentes</a></li>
+    <li><a href="ferralis-confidentialite.html">Politique de confidentialité</a></li>
+    <li><a href="mailto:contact@iedigital.fr?subject=Ferralis%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
   </ul>
 </section>
-""", "Forge Yourself, application iOS de musculation éditée par IE DIGITAL : programme, charges qui s'ajustent, suivi. Assistance et confidentialité.")
+""", "Ferralis, application iOS de musculation éditée par IE DIGITAL : programme, charges qui s'ajustent, suivi. Assistance et confidentialité.")
 
-BODIES["forge-assistance.html"] = ("""
-<p class="eyebrow"><a href="forge.html">Forge Yourself</a></p>
+BODIES["ferralis-assistance.html"] = ("""
+<p class="eyebrow"><a href="ferralis.html">Ferralis</a></p>
 <h1>Assistance</h1>
-<p class="lede">Forge Yourself, application iOS · IE DIGITAL</p>
+<p class="lede">Ferralis, application iOS · IE DIGITAL</p>
 
-<p class="note"><b>Nous écrire : <a href="mailto:contact@iedigital.fr?subject=Forge%20%E2%80%94%20assistance">contact@iedigital.fr</a></b><br>
+<p class="note"><b>Nous écrire : <a href="mailto:contact@iedigital.fr?subject=Ferralis%20%E2%80%94%20assistance">contact@iedigital.fr</a></b><br>
 Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce qui s'est passé, le modèle de ton iPhone et sa version d'iOS (Réglages › Général › Informations). Une capture d'écran aide beaucoup.</p>
 
 <section class="faq">
@@ -608,17 +608,17 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 
 <details>
 <summary>Faut-il créer un compte ?</summary>
-<p>Non. Forge fonctionne sans compte et sans serveur : ton programme, tes séances et tes relevés sont enregistrés sur ton iPhone.</p>
+<p>Non. Ferralis fonctionne sans compte et sans serveur : ton programme, tes séances et tes relevés sont enregistrés sur ton iPhone.</p>
 </details>
 
 <details>
 <summary>Comment sauvegarder mes données, ou les passer sur un nouvel iPhone ?</summary>
-<p><i>Profil › Données › Sauvegarder ce profil</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail). Sur le nouvel iPhone, à l'écran « Qui s'entraîne ? », touche <i>Restaurer une sauvegarde</i> et choisis ce fichier : Forge te montre ce qu'il contient avant d'importer. L'import ajoute un profil, il n'en écrase jamais un.</p>
+<p><i>Profil › Données › Sauvegarder ce profil</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail). Sur le nouvel iPhone, à l'écran « Qui s'entraîne ? », touche <i>Restaurer une sauvegarde</i> et choisis ce fichier : Ferralis te montre ce qu'il contient avant d'importer. L'import ajoute un profil, il n'en écrase jamais un.</p>
 </details>
 
 <details>
 <summary>Comment gérer ou résilier mon abonnement ?</summary>
-<p>Dans <i>Profil › Toi › Abonnement</i>, ou dans les réglages de l'iPhone : <i>Réglages › ton nom › Abonnements › Forge</i>. La résiliation prend effet à la fin de la période en cours ; tu gardes l'accès jusque-là, et ton historique reste consultable ensuite.</p>
+<p>Dans <i>Profil › Toi › Abonnement</i>, ou dans les réglages de l'iPhone : <i>Réglages › ton nom › Abonnements › Ferralis</i>. La résiliation prend effet à la fin de la période en cours ; tu gardes l'accès jusque-là, et ton historique reste consultable ensuite.</p>
 </details>
 
 <details>
@@ -633,7 +633,7 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 
 <details>
 <summary>À quoi sert l'app Santé, et comment couper l'accès ?</summary>
-<p>Si tu l'actives dans <i>Profil › Données › Santé</i>, Forge lit ton poids, ta taille et tes pas pour éviter une double saisie. Sur l'iPhone, Forge n'écrit rien dans Santé. Si tu l'acceptes, l'Apple Watch y enregistre les séances lancées sur la montre : durée, énergie active et fréquence cardiaque. Ces données restent sur tes appareils. Pour retirer l'accès : <i>Réglages › Santé › Accès aux données et appareils › Forge</i>.</p>
+<p>Si tu l'actives dans <i>Profil › Données › Santé</i>, Ferralis lit ton poids, ta taille et tes pas pour éviter une double saisie. Sur l'iPhone, Ferralis n'écrit rien dans Santé. Si tu l'acceptes, l'Apple Watch y enregistre les séances lancées sur la montre : durée, énergie active et fréquence cardiaque. Ces données restent sur tes appareils. Pour retirer l'accès : <i>Réglages › Santé › Accès aux données et appareils › Ferralis</i>.</p>
 </details>
 
 <details>
@@ -646,12 +646,12 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 <ul>
 <li>Vérifie le son et la vibration dans <i>Profil › Programme › Pendant la séance</i>.</li>
 <li>Le son de fin suit le bouton silencieux de l'iPhone : en mode silencieux, seule la vibration reste.</li>
-<li>Pour être prévenu téléphone verrouillé, autorise les notifications : <i>Réglages › Notifications › Forge</i>.</li>
+<li>Pour être prévenu téléphone verrouillé, autorise les notifications : <i>Réglages › Notifications › Ferralis</i>.</li>
 </ul>
 </details>
 
 <details>
-<summary>Forge remplace-t-il un avis médical ?</summary>
+<summary>Ferralis remplace-t-il un avis médical ?</summary>
 <p>Non. Les programmes et les repères de nutrition sont des repères d'entraînement, pas un avis médical. En cas de douleur, de blessure, de maladie, de grossesse ou de trouble alimentaire, demande l'avis d'un professionnel de santé avant de t'entraîner.</p>
 </details>
 </section>
@@ -659,23 +659,23 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 <section>
 <h2>Liens utiles</h2>
 <ul>
-<li><a href="forge-confidentialite.html">Politique de confidentialité</a></li>
+<li><a href="ferralis-confidentialite.html">Politique de confidentialité</a></li>
 <li><a href="mentions-legales.html">Mentions légales</a> — IE DIGITAL, SARL, RCS Lille Métropole 822 744 116</li>
 </ul>
 </section>
-""", "Assistance de Forge Yourself : contact, sauvegarde et changement d'iPhone, abonnement, remboursement, app Santé, suppression des données.")
+""", "Assistance de Ferralis : contact, sauvegarde et changement d'iPhone, abonnement, remboursement, app Santé, suppression des données.")
 
-# --------------------------------------------- Forge · confidentialité
-# Page exigée par Apple pour la soumission de l'application Forge Yourself.
+# --------------------------------------------- Ferralis · confidentialité
+# Page exigée par Apple pour la soumission de l'application Ferralis.
 # Son URL doit rester stable : elle est déclarée dans App Store Connect, et la
 # changer casse la fiche produit.
-BODIES["forge-confidentialite.html"] = ("""
-<p class="eyebrow"><a href="forge.html">Forge Yourself</a></p>
+BODIES["ferralis-confidentialite.html"] = ("""
+<p class="eyebrow"><a href="ferralis.html">Ferralis</a></p>
 <h1>Politique de confidentialité</h1>
-<p class="lede">Forge Yourself, application iOS et application web · version du 6 octobre 2026</p>
+<p class="lede">Ferralis, application iOS et application web · version du 6 octobre 2026</p>
 
 <div class="note" style="margin-bottom:32px">
-<p style="margin:0"><b>En bref : nous ne recevons aucune de tes données d'entraînement ni de santé.</b> Il n'y a pas de compte, pas de serveur Forge, pas de publicité, pas de traceur. Ce que tu saisis est traité par l'application sur ton appareil. Quand la synchronisation iCloud arrivera (prochaine version), si tu es abonné et que tu l'utilises, une copie de ton programme et de tes séances partira dans <b>ton</b> espace iCloud, auquel nous n'avons pas accès. Tes mesures corporelles, ce qui vient de l'app Santé, ton journal de repas et ses photos ne sont jamais copiés par Forge, ni dans iCloud ni ailleurs.</p>
+<p style="margin:0"><b>En bref : nous ne recevons aucune de tes données d'entraînement ni de santé.</b> Il n'y a pas de compte, pas de serveur Ferralis, pas de publicité, pas de traceur. Ce que tu saisis est traité par l'application sur ton appareil. Quand la synchronisation iCloud arrivera (prochaine version), si tu es abonné et que tu l'utilises, une copie de ton programme et de tes séances partira dans <b>ton</b> espace iCloud, auquel nous n'avons pas accès. Tes mesures corporelles, ce qui vient de l'app Santé, ton journal de repas et ses photos ne sont jamais copiés par Ferralis, ni dans iCloud ni ailleurs.</p>
 </div>
 
 <h2>Qui édite l'application</h2>
@@ -691,38 +691,38 @@ BODIES["forge-confidentialite.html"] = ("""
 
 <h2>La synchronisation iCloud (iPhone, abonnés)</h2>
 
-<p><b>Cette fonction arrive avec une prochaine version de l'application.</b> Tant qu'elle n'y est pas, rien ne part dans iCloud. Quand elle sera là : avec un abonnement actif et un compte iCloud sur ton iPhone, Forge copie tes <b>profils</b> — programme, séances, charges, notes, médailles et réglages — dans la base de données <b>privée</b> que ton compte iCloud réserve à l'application. C'est ce qui te permet de les retrouver sur un autre iPhone.</p>
+<p><b>Cette fonction arrive avec une prochaine version de l'application.</b> Tant qu'elle n'y est pas, rien ne part dans iCloud. Quand elle sera là : avec un abonnement actif et un compte iCloud sur ton iPhone, Ferralis copie tes <b>profils</b> — programme, séances, charges, notes, médailles et réglages — dans la base de données <b>privée</b> que ton compte iCloud réserve à l'application. C'est ce qui te permet de les retrouver sur un autre iPhone.</p>
 <ul>
-<li><b>Ce qui n'y va jamais</b> : ton poids, ta taille, ton âge et tes mensurations, qu'ils viennent de Forge ou de l'app Santé ; ton journal de repas et ses photos ; la séance en cours. Ces données restent sur l'iPhone où tu les as saisies.</li>
+<li><b>Ce qui n'y va jamais</b> : ton poids, ta taille, ton âge et tes mensurations, qu'ils viennent de Ferralis ou de l'app Santé ; ton journal de repas et ses photos ; la séance en cours. Ces données restent sur l'iPhone où tu les as saisies.</li>
 <li><b>Qui y a accès</b> : toi, à travers ton compte Apple. Cette copie est stockée par Apple, sur ton quota iCloud, selon les conditions d'iCloud que tu as acceptées. Elle ne passe par aucun serveur d'IE DIGITAL, et nous ne pouvons pas la consulter.</li>
 <li><b>Sans compte iCloud, ou sans abonnement</b>, rien ne part : tes données restent sur l'iPhone.</li>
-<li><b>À ne pas confondre</b> avec la sauvegarde de ton iPhone (dans iCloud ou sur un ordinateur), que gère iOS et non Forge : comme pour toute application, elle contient les données de Forge présentes sur l'appareil, photos du journal exceptées.</li>
-<li><b>Pour arrêter</b> : désactive Forge dans <i>Réglages › ton nom › iCloud</i>. Si ton abonnement prend fin, la synchronisation s'arrête ; la copie déjà faite reste dans ton iCloud jusqu'à ce que tu l'effaces.</li>
-<li><b>Pour effacer ta copie iCloud</b> : supprime tes profils dans Forge tant que la synchronisation est active, ou efface les données de Forge dans <i>Réglages › ton nom › iCloud › Gérer le stockage</i>.</li>
+<li><b>À ne pas confondre</b> avec la sauvegarde de ton iPhone (dans iCloud ou sur un ordinateur), que gère iOS et non Ferralis : comme pour toute application, elle contient les données de Ferralis présentes sur l'appareil, photos du journal exceptées.</li>
+<li><b>Pour arrêter</b> : désactive Ferralis dans <i>Réglages › ton nom › iCloud</i>. Si ton abonnement prend fin, la synchronisation s'arrête ; la copie déjà faite reste dans ton iCloud jusqu'à ce que tu l'effaces.</li>
+<li><b>Pour effacer ta copie iCloud</b> : supprime tes profils dans Ferralis tant que la synchronisation est active, ou efface les données de Ferralis dans <i>Réglages › ton nom › iCloud › Gérer le stockage</i>.</li>
 </ul>
 
 <h2>Le journal de repas (iPhone, facultatif)</h2>
-<p>Le journal ne s'ouvre qu'avec ton accord explicite. Il garde, pour chaque repas, sa composition, une taille d'assiette et, si tu le veux, une photo. La photo est prise avec l'appareil photo de l'iPhone, analysée <b>sur ton iPhone</b> pour te proposer une composition que tu confirmes toi-même, réduite, puis effacée au bout de 7 jours. Le journal et ses photos restent sur ton iPhone : Forge ne les copie ni dans iCloud ni chez nous, et les photos sont exclues des sauvegardes de l'iPhone. L'indicateur de pertinence est désactivé par défaut ; activé, il est calculé sur l'iPhone. <i>Tout effacer</i> supprime les repas et les photos ; retirer ton accord efface tout le journal.</p>
+<p>Le journal ne s'ouvre qu'avec ton accord explicite. Il garde, pour chaque repas, sa composition, une taille d'assiette et, si tu le veux, une photo. La photo est prise avec l'appareil photo de l'iPhone, analysée <b>sur ton iPhone</b> pour te proposer une composition que tu confirmes toi-même, réduite, puis effacée au bout de 7 jours. Le journal et ses photos restent sur ton iPhone : Ferralis ne les copie ni dans iCloud ni chez nous, et les photos sont exclues des sauvegardes de l'iPhone. L'indicateur de pertinence est désactivé par défaut ; activé, il est calculé sur l'iPhone. <i>Tout effacer</i> supprime les repas et les photos ; retirer ton accord efface tout le journal.</p>
 
 <h2>L'app Santé (iPhone, facultatif)</h2>
-<p>Si tu actives <i>Profil › Données › Santé</i>, Forge t'explique d'abord ce qu'il lit, puis iOS te laisse choisir donnée par donnée. Forge <b>lit</b> dans l'app Santé ton <b>poids</b> et ta <b>taille</b>, pour remplir ta courbe de suivi et tes repères sans double saisie, et ton <b>nombre de pas</b>, pour afficher ta moyenne quotidienne dans l'onglet Suivi. Sur l'iPhone, <b>Forge n'écrit rien dans Santé.</b></p>
-<p><b>L'Apple Watch (facultatif).</b> Si tu l'acceptes au lancement d'une séance sur la montre, Forge <b>enregistre dans Santé</b> chaque séance lancée sur ton Apple Watch, comme un entraînement de musculation : sa <b>durée</b>, l'<b>énergie active</b> et la <b>fréquence cardiaque</b> mesurées par la montre. Pendant la séance, la montre lit aussi ta fréquence cardiaque et ton énergie active pour te les afficher. Ces données restent dans Santé, sur tes appareils : elles ne nous sont jamais envoyées, ne sont jamais utilisées à des fins publicitaires ni transmises à un tiers. Tu peux refuser, retirer l'accès à tout moment dans <i>Réglages › Santé › Accès aux données et appareils › Forge</i>, et supprimer ces entraînements dans l'app Santé.</p>
-<p>Les données lues dans Santé restent sur ton iPhone : elles ne partent ni dans iCloud, ni dans la sauvegarde par fichier, ni chez nous. Elles ne sont jamais utilisées à des fins publicitaires ni transmises à un tiers. Tu peux retirer l'accès à tout moment dans <i>Réglages › Santé › Accès aux données et appareils › Forge</i>.</p>
+<p>Si tu actives <i>Profil › Données › Santé</i>, Ferralis t'explique d'abord ce qu'il lit, puis iOS te laisse choisir donnée par donnée. Ferralis <b>lit</b> dans l'app Santé ton <b>poids</b> et ta <b>taille</b>, pour remplir ta courbe de suivi et tes repères sans double saisie, et ton <b>nombre de pas</b>, pour afficher ta moyenne quotidienne dans l'onglet Suivi. Sur l'iPhone, <b>Ferralis n'écrit rien dans Santé.</b></p>
+<p><b>L'Apple Watch (facultatif).</b> Si tu l'acceptes au lancement d'une séance sur la montre, Ferralis <b>enregistre dans Santé</b> chaque séance lancée sur ton Apple Watch, comme un entraînement de musculation : sa <b>durée</b>, l'<b>énergie active</b> et la <b>fréquence cardiaque</b> mesurées par la montre. Pendant la séance, la montre lit aussi ta fréquence cardiaque et ton énergie active pour te les afficher. Ces données restent dans Santé, sur tes appareils : elles ne nous sont jamais envoyées, ne sont jamais utilisées à des fins publicitaires ni transmises à un tiers. Tu peux refuser, retirer l'accès à tout moment dans <i>Réglages › Santé › Accès aux données et appareils › Ferralis</i>, et supprimer ces entraînements dans l'app Santé.</p>
+<p>Les données lues dans Santé restent sur ton iPhone : elles ne partent ni dans iCloud, ni dans la sauvegarde par fichier, ni chez nous. Elles ne sont jamais utilisées à des fins publicitaires ni transmises à un tiers. Tu peux retirer l'accès à tout moment dans <i>Réglages › Santé › Accès aux données et appareils › Ferralis</i>.</p>
 
 <h2>La sauvegarde par fichier</h2>
-<p><i>Profil › Données › Sauvegarder ce profil</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail…). Il contient ton profil, mensurations saisies comprises, mais rien de ce qui vient de Santé. Forge ne l'envoie nulle part : c'est toi qui choisis sa destination, et le service que tu choisis applique alors ses propres règles. Ce fichier te permet aussi de récupérer tes données dans un format lisible et de les emporter ailleurs.</p>
+<p><i>Profil › Données › Sauvegarder ce profil</i> crée un fichier que tu ranges où tu veux (Fichiers, iCloud Drive, e-mail…). Il contient ton profil, mensurations saisies comprises, mais rien de ce qui vient de Santé. Ferralis ne l'envoie nulle part : c'est toi qui choisis sa destination, et le service que tu choisis applique alors ses propres règles. Ce fichier te permet aussi de récupérer tes données dans un format lisible et de les emporter ailleurs.</p>
 
 <h2>Les achats</h2>
 <p>Les abonnements et l'achat à vie passent entièrement par Apple, qui en est responsable. Nous ne recevons ni ton nom, ni ton adresse, ni tes moyens de paiement. L'application vérifie sur ton appareil le justificatif signé par Apple pour savoir quelles fonctions ouvrir. La gestion et la résiliation se font dans les réglages de ton compte Apple.</p>
 
 <h2>La demande d'avis</h2>
-<p>De temps en temps, après une séance, Forge peut faire apparaître la fenêtre d'avis de l'App Store. C'est une fenêtre d'Apple : iOS décide si elle s'affiche et en limite la fréquence, et ce que tu y réponds va à Apple, pas à nous. Pour choisir le moment, l'application ne se sert que de données restées sur ton iPhone (nombre de séances, records, date du dernier renouvellement). Si tu publies un avis, Apple l'affiche sur l'App Store sous ton pseudonyme, selon ses propres règles ; nous pouvons y répondre publiquement.</p>
+<p>De temps en temps, après une séance, Ferralis peut faire apparaître la fenêtre d'avis de l'App Store. C'est une fenêtre d'Apple : iOS décide si elle s'affiche et en limite la fréquence, et ce que tu y réponds va à Apple, pas à nous. Pour choisir le moment, l'application ne se sert que de données restées sur ton iPhone (nombre de séances, records, date du dernier renouvellement). Si tu publies un avis, Apple l'affiche sur l'App Store sous ton pseudonyme, selon ses propres règles ; nous pouvons y répondre publiquement.</p>
 
 <h2>Les notifications</h2>
 <p>Le minuteur de repos peut t'envoyer des notifications et s'afficher sur l'écran verrouillé, si tu l'autorises. Elles sont créées par l'application sur ton iPhone ; aucun serveur ne les envoie.</p>
 
 <h2>Les statistiques</h2>
-<p>Forge n'intègre aucun outil de mesure d'audience. Apple nous fournit, dans son espace développeur, des statistiques agrégées : installations, plantages, abonnements. Les chiffres d'usage et les rapports de plantage ne proviennent que des personnes qui ont accepté, dans les réglages de leur iPhone, de partager leurs données d'analyse avec les développeurs ; ils ne nous permettent pas de t'identifier. L'app web ne mesure rien.</p>
+<p>Ferralis n'intègre aucun outil de mesure d'audience. Apple nous fournit, dans son espace développeur, des statistiques agrégées : installations, plantages, abonnements. Les chiffres d'usage et les rapports de plantage ne proviennent que des personnes qui ont accepté, dans les réglages de leur iPhone, de partager leurs données d'analyse avec les développeurs ; ils ne nous permettent pas de t'identifier. L'app web ne mesure rien.</p>
 
 <h2>L'hébergement de l'app web et de cette page</h2>
 <p>L'app web et cette page sont hébergées par <b>GitHub</b> (GitHub, Inc., filiale de Microsoft, États-Unis). Comme tout hébergeur, GitHub peut enregistrer des données techniques de connexion, dont l'adresse IP, pour la sécurité de son service. Nous n'y avons pas accès. Voir la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité de GitHub</a>.</p>
@@ -733,13 +733,13 @@ BODIES["forge-confidentialite.html"] = ("""
 <h2>Combien de temps</h2>
 <ul>
 <li><b>Sur ton appareil</b> : jusqu'à ce que tu supprimes le profil, les données du site ou l'application.</li>
-<li><b>Dans ton iCloud</b> (programme et séances) : jusqu'à ce que tu supprimes le profil ou effaces les données de Forge dans iCloud.</li>
+<li><b>Dans ton iCloud</b> (programme et séances) : jusqu'à ce que tu supprimes le profil ou effaces les données de Ferralis dans iCloud.</li>
 <li><b>Photos du journal de repas</b> : 7 jours, sur l'iPhone.</li>
 <li><b>Tes messages</b> : au plus trois ans après notre dernier échange.</li>
 </ul>
 
 <h2>Les mineurs</h2>
-<p>L'âge est déclaré par toi, il n'est pas vérifié. En dessous de 18 ans, Forge n'affiche ni repères caloriques ni macronutriments.</p>
+<p>L'âge est déclaré par toi, il n'est pas vérifié. En dessous de 18 ans, Ferralis n'affiche ni repères caloriques ni macronutriments.</p>
 
 <h2>Tes droits</h2>
 <p>Pour les données traitées sur ton appareil ou copiées dans ton iCloud, tu exerces toi-même tes droits dans l'application : consulter, modifier, exporter (<i>Profil › Données › Sauvegarder ce profil</i>), supprimer. Pour ce qui passe par Apple (achats, iCloud, avis), tes droits s'exercent auprès d'Apple. Pour les messages que tu nous as envoyés, tu peux nous demander l'accès, la rectification, l'effacement, la limitation, t'opposer à leur traitement, ou nous laisser des directives sur leur sort après ton décès, à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a>. Tu peux aussi saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>) ou l'autorité de protection des données de ton pays.</p>
@@ -754,7 +754,7 @@ BODIES["forge-confidentialite.html"] = ("""
 <li><b>Hébergeur de cette page et de l'app web</b> : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</li>
 <li><b>Distribution de l'application iOS</b> : App Store, exploité par Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irlande.</li>
 </ul>
-""", "Politique de confidentialité de l'application Forge Yourself : aucune donnée collectée, tout reste sur votre appareil.")
+""", "Politique de confidentialité de l'application Ferralis : aucune donnée collectée, tout reste sur votre appareil.")
 
 # ---------------------------------------------------------- Essor · section
 # Section de l'application Essor : présentation, assistance, confidentialité,
@@ -1326,12 +1326,12 @@ for slug, label in PAGES:
         title = ALOI_TITRES[slug]
     elif slug == "index.html":
         title = "IE DIGITAL"
-    elif slug == "forge-confidentialite.html":
-        title = "Confidentialité — Forge Yourself"
-    elif slug == "forge-assistance.html":
-        title = "Assistance — Forge Yourself"
-    elif slug == "forge.html":
-        title = "Forge Yourself — IE DIGITAL"
+    elif slug == "ferralis-confidentialite.html":
+        title = "Confidentialité — Ferralis"
+    elif slug == "ferralis-assistance.html":
+        title = "Assistance — Ferralis"
+    elif slug == "ferralis.html":
+        title = "Ferralis — IE DIGITAL"
     elif slug == "essor.html":
         title = "Essor — IE DIGITAL"
     elif slug == "essor-confidentialite.html":
@@ -1365,9 +1365,9 @@ print("\nSite généré dans", OUT)
 # Chaque page française a sa traduction dans content-en/<page>.html (ligne 1 :
 # <!-- desc: ... -->). Elles sont publiées sous /en/ avec les mêmes noms.
 TITLES_EN = {
-    "index.html": "IE DIGITAL", "forge.html": "Forge Yourself — IE DIGITAL",
+    "index.html": "IE DIGITAL", "ferralis.html": "Ferralis — IE DIGITAL",
     "essor.html": "Essor — IE DIGITAL", "vespra.html": "Vespra — IE DIGITAL",
-    "forge-confidentialite.html": "Privacy — Forge Yourself", "forge-assistance.html": "Support — Forge Yourself",
+    "ferralis-confidentialite.html": "Privacy — Ferralis", "ferralis-assistance.html": "Support — Ferralis",
     "essor-confidentialite.html": "Privacy — Essor", "essor-assistance.html": "Support — Essor",
     "essor-methode.html": "How the index works — Essor",
     "vespra-confidentialite.html": "Privacy — Vespra", "vespra-assistance.html": "Support — Vespra",
