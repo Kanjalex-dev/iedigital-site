@@ -50,33 +50,55 @@
 <article class="page">
 <p class="eyebrow"><a href="aloi.html">Aloi</a></p>
 <h1>Méthode de la note et du classement</h1>
-<p class="lede">Version de l'algorithme 1.3 · catalogue 2026-10 · page du 8 octobre 2026</p>
+<p class="lede">Version de l'algorithme 1.3 · catalogue du 24 octobre 2026 · page du 24 octobre 2026</p>
 
 <div class="note" style="margin-bottom:32px">
-<p style="margin:0"><b>En bref.</b> Les classements des contrats du marché sont les mêmes pour tous : ils ne dépendent ni de votre profil, ni de vos objectifs, ni de votre situation. Aucun établissement ne paie pour y figurer ou pour être mieux classé. Le catalogue (175 contrats au 5 octobre 2026) n'est pas exhaustif.</p>
+<p style="margin:0"><b>En bref.</b> Les classements du marché sont publics et identiques pour tous : ils ne dépendent ni de votre profil, ni de vos objectifs, ni de vos encours. Mêmes critères et mêmes poids pour tout le monde. Chaque donnée est datée et sourcée ; une donnée absente est « non mesurée », jamais devinée. Aucun établissement ne paie pour figurer dans Aloi. Le catalogue (175 contrats, tarifs relevés le 5 octobre 2026) n'est pas exhaustif. Cette page reprend la méthode affichée dans l'app (<i>Marché › Méthode</i>).</p>
 </div>
 
-<h2>1. Ce qui est comparé</h2>
-<p>Un contrat n'est classé qu'avec des contrats de la même enveloppe (assurance vie, PER, PEA, compte-titres, contrat de capitalisation). Les classements portent sur la gestion libre. Un champ « Montant à placer », vide par défaut, retire les contrats dont le versement minimal dépasse le montant que vous tapez ; rien n'y est prérempli depuis vos encours.</p>
+<h2>1. Ce qui est classé</h2>
+<p>Les 175 contrats du catalogue sont listés sous chaque critère, par enveloppe, dans cet ordre : assurance vie, PER, PEA, compte-titres, contrat de capitalisation. Une note ne se compare qu'entre contrats de la même enveloppe. Un contrat qu'un critère ne peut pas classer reste en fin de section, avec son motif : fermé à la souscription, frais variables (coût incomplet), pas de tarif en gestion libre, aucun critère de l'angle mesuré, pas de fonds euros.</p>
 
-<h2>2. La note d'un contrat : critères et poids</h2>
+<h2>2. Classer selon</h2>
+<p>Vous choisissez le critère de tri. Quatre angles donnent une note sur 100, selon les poids publics ci-dessous ; trois critères unitaires trient sur une seule donnée publiée : frais de gestion annuels (ordre croissant), frais sur versement (ordre croissant), taux du fonds euros 2025 (ordre décroissant). <b>Aucun tri par performance passée.</b> À l'ouverture, l'angle « Équilibre » est actif pour tout le monde ; il n'est jamais choisi d'après votre profil. En cas d'égalité, les contrats sont départagés par leur nom.</p>
+<table>
+<thead><tr><th>Angle</th><th>Poids</th></tr></thead>
+<tbody>
+<tr><td>Sécurité</td><td>solidité 35 · fonds euros 25 · garanties 20 · frais 20</td></tr>
+<tr><td>Équilibre</td><td>frais 45 · solidité 15 · fonds euros 15 · offre 15 · garanties 10</td></tr>
+<tr><td>Frais</td><td>frais 85 · solidité 15</td></tr>
+<tr><td>Choix d'investissement</td><td>offre 50 · frais des supports 35 · solidité 15</td></tr>
+</tbody>
+</table>
+<p>Le poids d'un critère non mesuré se reporte sur les autres, à proportion. Le classement public, identique pour tous, utilise ces angles et ces poids, et eux seuls. La liquidité n'y figure pas : elle ne départage pas deux contrats d'une même enveloppe. Les barèmes de chaque critère sont détaillés au point 7.</p>
+
+<h2>3. Les filtres, choisis par vous</h2>
+<p>Les filtres sont vides à chaque ouverture. Aloi ne les remplit jamais à partir de votre profil ni de vos contrats, et n'en mémorise aucun. Ils portent sur le produit : enveloppe, mode de gestion, versement initial minimum, frais de gestion annuels, fonds euros disponible, supports proposés, indicateur de risque (SRI, de 1 à 7 : le support le moins risqué du contrat compte) et période de détention recommandée par l'assureur dans son document d'informations clés (DIC, de 1 à 15 ans). Un contrat sans SRI ou sans période publiée reste affiché, sauf si vous désactivez « Inclure les contrats sans donnée publiée ». Un filtre masque des lignes, il ne renumérote pas : les positions restent celles du classement public.</p>
+
+<h2>4. La place de votre contrat</h2>
+<p>Une carte, en haut de l'écran et hors de la liste, indique la place de votre contrat sous le critère choisi (« Votre contrat : 52e sur 175 sur ce critère ») et sa note selon la méthode publique. Si votre contrat n'est pas classé publiquement (absent du catalogue, fermé à la souscription ou sans tarif publié), sa place est estimée avec les frais saisis par vous ou ceux du catalogue, et présentée « hors classement public ». Aucune place n'est calculée avec une donnée par défaut. Aloi ne nomme jamais un autre contrat dans cette carte. Sur demande, un repère neutre situe votre contrat dans la liste entière ; il disparaît à la fermeture de l'écran.</p>
+
+<h2>5. Tarifs à confirmer</h2>
+<p>Un tarif relevé sans document de l'établissement qui le confirme entièrement porte la pastille « Tarif à confirmer », et une légende sous la liste rappelle la date du relevé. Ces contrats sont classés avec ce tarif, selon la même méthode que les autres. La source de chaque tarif figure sur la fiche du contrat. Un établissement peut signaler une erreur à <a href="mailto:contact@iedigital.fr">contact@iedigital.fr</a> ; la correction est publiée à la mise à jour suivante du catalogue. Les frais médians affichés sur l'accueil de l'app excluent les tarifs à confirmer.</p>
+
+<h2>6. La note d'un contrat : critères et poids</h2>
 <table>
 <thead><tr><th>Critère</th><th>Donnée</th><th>Poids</th><th>État au catalogue</th></tr></thead>
 <tbody>
 <tr><td>Frais tout compris</td><td>Frais annuels du contrat, du mode de gestion et des supports, publiés par l'établissement</td><td>35</td><td>mesuré</td></tr>
-<tr><td>Solidité de l'assureur</td><td>Ratio de solvabilité publié dans le rapport SFCR</td><td>15</td><td>mesuré (107 contrats)</td></tr>
+<tr><td>Solidité de l'assureur</td><td>Ratio de solvabilité publié dans le rapport SFCR</td><td>15</td><td>mesuré quand le ratio est publié</td></tr>
 <tr><td>Liquidité de l'enveloppe</td><td>Règles de retrait de l'enveloppe</td><td>10</td><td>mesuré, identique dans une même enveloppe</td></tr>
-<tr><td>Fonds en euros</td><td>Moyenne des taux servis sur les 5 derniers exercices publiés (3 au minimum)</td><td>10</td><td>mesuré (105 contrats)</td></tr>
-<tr><td>Offre d'investissement</td><td>Nombre d'unités de compte, nombre d'ETF, gestion pilotée proposée</td><td>10</td><td>mesuré (78 contrats)</td></tr>
-<tr><td>Garanties</td><td>Plancher décès (assurance vie, capitalisation) ; options de sortie (PER)</td><td>5</td><td>mesuré (63 contrats)</td></tr>
-<tr><td>Performance</td><td>Performance annuelle publiée sur 5 ans, sinon 3 ans, sinon 1 an</td><td>7</td><td>non mesuré : aucune donnée publiée au catalogue</td></tr>
+<tr><td>Fonds en euros</td><td>Moyenne des taux servis sur les 5 derniers exercices publiés (3 au minimum), hors bonus</td><td>10</td><td>mesuré quand les taux sont publiés</td></tr>
+<tr><td>Offre d'investissement</td><td>Nombre d'unités de compte, nombre d'ETF, gestion pilotée proposée</td><td>10</td><td>mesuré quand l'offre est publiée</td></tr>
+<tr><td>Garanties</td><td>Plancher décès (assurance vie, capitalisation) ; options de sortie (PER)</td><td>5</td><td>mesuré quand elles sont publiées</td></tr>
+<tr><td>Performance</td><td>Performance annuelle publiée du contrat sur 5 ans, sinon 3 ans, sinon 1 an</td><td>7</td><td>non mesuré pour les 175 contrats</td></tr>
 <tr><td>Volatilité et pertes passées</td><td>Volatilité et perte maximale publiées</td><td>4</td><td>non mesuré</td></tr>
 <tr><td>Risque / performance</td><td>Performance annuelle ÷ volatilité</td><td>4</td><td>non mesuré</td></tr>
 </tbody>
 </table>
-<p>Un critère sans donnée, ou sans objet pour l'enveloppe (fonds en euros et garanties pour un PEA ou un compte-titres), n'est jamais remplacé par une valeur inventée : il est retiré et son poids est redistribué sur les critères mesurés. Aujourd'hui, pour un contrat d'assurance vie dont toutes les données sont publiées, les poids effectifs sont : frais 41 %, solidité 18 %, liquidité 12 %, fonds en euros 12 %, offre 12 %, garanties 6 %.</p>
+<p>Un critère sans donnée, ou sans objet pour l'enveloppe (fonds en euros et garanties pour un PEA ou un compte-titres), n'est jamais remplacé par une valeur inventée : il est retiré et son poids est redistribué sur les critères mesurés. Sans aucun frais connu, un contrat n'a pas de note. Les performances des profils de gestion pilotée affichées dans « Comparer » (point 9) n'entrent jamais dans la note ni dans le classement. Pour un contrat d'assurance vie dont toutes les autres données sont publiées, les poids effectifs sont : frais 41 %, solidité 18 %, liquidité 12 %, fonds en euros 12 %, offre 12 %, garanties 6 %.</p>
 
-<h2>3. Les barèmes</h2>
+<h2>7. Les barèmes</h2>
 <ul>
 <li><b>Frais</b> : 100 à 0 % de frais ; puis une courbe par paliers. Assurance vie, PER et capitalisation : 88 à 0,80 %, 78 à 1,30 %, 66 à 1,70 %, 54 à 2,10 %, 42 à 2,60 %, 15 à 3,90 %. PEA et compte-titres : 88 à 0,30 %, 78 à 0,60 %, 66 à 1,20 %, 54 à 1,70 %, 42 à 2,20 %, 15 à 3,30 %. Entre deux paliers, la note est interpolée ; au-delà du dernier, 10.</li>
 <li><b>Solidité</b> : ratio de solvabilité de 220 % ou plus : 90 ; de 180 % : 78 ; de 150 % : 62 ; en dessous : 45.</li>
@@ -84,42 +106,53 @@
 <li><b>Fonds en euros</b> : moyenne de 2,5 % ou plus : 85 ; de 2 % : 70 ; de 1,5 % : 55 ; en dessous : 40.</li>
 <li><b>Offre d'investissement</b> (somme, 90 au plus) : unités de compte, 500 ou plus : 40 ; 200 : 30 ; 100 : 20 ; moins : 10. ETF, 50 ou plus : 30 ; 20 : 22 ; 5 : 12 ; moins : 0. Gestion pilotée proposée : 20.</li>
 <li><b>Garanties</b> : plancher décès inclus 85, en option 65, absent 35. PER : sortie en capital et en rente 85, une seule des deux 65.</li>
-<li><b>Performance</b> (quand elle sera publiée) : 7 % et plus par an : 90 ; 5 % : 78 ; 3 % : 65 ; 1 % : 50 ; 0 % : 40 ; en dessous : 25.</li>
+<li><b>Frais des supports</b> (angle Choix d'investissement seulement) : 0,25 % ou moins : 90 ; 0,40 % : 75 ; 0,55 % : 60 ; 0,70 % : 45 ; au-delà : 30.</li>
+<li><b>Performance</b> (si un jour elle est publiée pour le contrat) : 7 % et plus par an : 90 ; 5 % : 78 ; 3 % : 65 ; 1 % : 50 ; 0 % : 40 ; en dessous : 25.</li>
 <li><b>Volatilité</b> : 5 % ou moins : 90 ; 10 % : 75 ; 15 % : 60 ; 20 % : 45 ; au-delà : 30. <b>Perte maximale</b> : 10 % ou moins : 90 ; 20 % : 70 ; 30 % : 50 ; au-delà : 30.</li>
 <li><b>Risque / performance</b> : 0,8 et plus : 90 ; 0,5 : 75 ; 0,3 : 60 ; 0,1 : 45 ; en dessous : 30.</li>
 </ul>
+<p><b>Des notes aux lettres</b> : S : 85 et plus · A : 75 · B : 62 · C : 50 · D : 38 · E : en dessous. Les lettres résument la note ; elles ne sont pas un avis sur votre situation. Pour un PEA ou un compte-titres, où presque seuls les frais sont publiés, les quatre angles donnent un ordre proche ; l'app le signale.</p>
 
-<h2>4. Quatre angles de lecture</h2>
-<p>Les classements du marché se lisent sous quatre angles, affichés côte à côte et choisis librement. Aucun n'est présélectionné à partir de votre profil ; à l'ouverture, l'angle « Équilibre » est actif pour tout le monde. La liquidité n'y figure pas, puisqu'elle ne départage pas deux contrats d'une même enveloppe.</p>
+<h2>8. Comparer deux contrats, ligne à ligne</h2>
+<p>Le contrat 1 est le vôtre, modifiable ; le contrat 2 est toujours vide : vous le choisissez dans la liste alphabétique de tout le catalogue. Les deux colonnes ont les mêmes lignes, dans cet ordre : le contrat, frais, risque (SRI des supports), durée (période de détention du DIC), supports disponibles, fonds euros, performances passées. Une valeur manquante s'affiche « Non publié ». Deux contrats d'enveloppes différentes ne sont comparés que sur leurs frais.</p>
+<ul>
+<li><b>Surlignage neutre</b> : une ligne dont les deux valeurs diffèrent est surlignée et porte le mot « Différent ». Le surlignage ne dit pas laquelle est préférable. Aucune couleur verte ou rouge, aucun symbole, aucun total, aucun score de synthèse.</li>
+<li><b>Étiquettes</b> : seulement « frais plus bas », « ticket d'entrée plus bas » et « taux servi plus élevé en AAAA », en texte. Un écart chiffré n'apparaît que sur les frais et sur le taux du fonds euros d'une même année. Rien sur le risque, la durée, les supports ni les performances.</li>
+<li><b>Sources et dates</b> : chaque colonne indique sa source et sa date de relevé. Le lien « Ouvrir le document source » ne mène qu'à un document PDF publié par l'établissement ou l'assureur, jamais à une page de souscription. Une source secondaire (courtier, comparateur, presse) est citée en texte, sans lien, avec la mention « source secondaire ». Aloi n'a aucun lien commercial avec ces sources.</li>
+</ul>
+
+<h2>9. Fonds euros et performances passées</h2>
+<p><b>Fonds euros.</b> Taux annuels nets de frais de gestion du contrat, avant prélèvements sociaux et fiscaux, hors bonus, de 2025 à 2018 (« Non publié » si une année manque). L'avertissement « Les rendements passés ne préjugent pas des rendements futurs. » est placé avant les taux. Une moyenne n'est calculée que si les deux séries sont complètes sur les mêmes années. Un taux moyen servi bonus inclus n'est jamais comparé.</p>
+<p><b>Performances des profils de gestion pilotée.</b> Elles sont présentées en dernier, dans un bloc replié, sous l'avertissement suivant, affiché avant les chiffres :</p>
+<p class="note">Les performances passées ne préjugent pas des performances futures. Elles ne sont pas constantes dans le temps et les unités de compte comportent un risque de perte en capital. Chiffres publiés par l'assureur ou par la source indiquée, non vérifiés par Aloi.</p>
+<p>Aloi reprend les performances annuelles publiées par année civile, avec le nom exact du profil et son SRI. Les périodes de 1, 3, 5 et 8 ans, annualisées et cumulées, sont calculées par Aloi en enchaînant ces années, avec une décimale ; une période n'est calculée que si chacune de ses années est publiée. Deux profils ne sont mis côte à côte que si vous les choisissez et s'ils sont comparables : même dernière année civile, même nature de chiffres, frais pris en compte identiques et publiés par la source. Si les niveaux de risque diffèrent, un bandeau le signale et aucun écart n'est affiché. Les performances passées ne servent jamais à trier ni à noter.</p>
+
+<h2>10. D'où viennent les données</h2>
+<p>Documents d'informations clés (DIC), notices et annexes tarifaires des contrats, rapports SFCR des assureurs, communiqués de taux et rapports de performances des assureurs, des distributeurs et des sociétés de gestion. À défaut, des sources secondaires (courtiers, comparateurs, presse), toujours signalées comme telles dans l'app et jamais prioritaires sur un document de l'établissement. Chaque donnée affiche dans l'app sa source et sa date. Une donnée dont la référence a plus de douze mois est signalée comme datée.</p>
 <table>
-<thead><tr><th>Angle</th><th>Pondération</th></tr></thead>
+<thead><tr><th>Donnée du catalogue</th><th>Contrats renseignés</th><th>Relevé</th></tr></thead>
 <tbody>
-<tr><td>Sécurité</td><td>solidité 35, fonds en euros 25, garanties 20, frais 20</td></tr>
-<tr><td>Équilibre</td><td>frais 45, solidité 15, fonds en euros 15, offre 15, garanties 10</td></tr>
-<tr><td>Frais</td><td>frais 85, solidité 15</td></tr>
-<tr><td>Choix d'investissement</td><td>offre 50, frais des supports 35, solidité 15</td></tr>
+<tr><td>Frais et conditions des contrats</td><td>175 / 175</td><td>5 octobre 2026</td></tr>
+<tr><td>Indicateur de risque (SRI) du DIC</td><td>76 / 175</td><td>jusqu'au 24 octobre 2026</td></tr>
+<tr><td>Période de détention recommandée par l'assureur (DIC)</td><td>72 / 175</td><td>jusqu'au 24 octobre 2026</td></tr>
+<tr><td>Fonds euros : contrats avec des taux servis publiés</td><td>118 / 175, dont 42 séries complètes 2018-2025</td><td>jusqu'au 24 octobre 2026</td></tr>
+<tr><td>Profils de gestion pilotée publiés</td><td>333 profils · 49 contrats</td><td>jusqu'au 24 octobre 2026</td></tr>
 </tbody>
 </table>
-<p><b>Frais des supports</b> (angle Choix d'investissement seulement) : 0,25 % ou moins : 90 ; 0,40 % : 75 ; 0,55 % : 60 ; 0,70 % : 45 ; au-delà : 30. Pour un PEA ou un compte-titres, où presque seuls les frais sont publiés, les quatre angles donnent un ordre proche ; l'app le signale.</p>
+<p>Les chiffres à jour, calculés sur le catalogue embarqué, figurent dans l'app (<i>Marché › Méthode</i>). <a href="aloi-assistance.html#signaler">Signaler une donnée erronée</a>.</p>
 
-<h2>5. Comparer deux contrats</h2>
-<p>L'outil s'ouvre sur deux cases vides : vous choisissez les deux contrats, parmi les vôtres ou dans le catalogue présenté par ordre alphabétique. Aloi affiche les données et les notes critère par critère, sans désigner de gagnant.</p>
-
-<h2>6. Des notes aux lettres</h2>
-<p>S : 85 et plus · A : 75 · B : 62 · C : 50 · D : 38 · E : en dessous. Les lettres résument la note ; elles ne sont pas un avis sur votre situation.</p>
-
-<h2>7. Ce qui n'entre pas dans les classements</h2>
+<h2>11. Ce qui n'entre pas dans les classements</h2>
 <ul>
-<li><b>Votre profil</b> (horizon, tolérance au risque, objectifs) : jamais utilisé pour classer les contrats du marché.</li>
+<li><b>Votre profil, vos objectifs et vos encours</b> : jamais utilisés pour classer, filtrer, trier ou comparer les contrats du marché.</li>
+<li><b>Les performances passées</b> : affichées dans « Comparer », jamais utilisées pour classer ni pour noter.</li>
 <li><b>Vos supports</b> : la diversification dépend des supports que vous choisissez, pas du contrat ; elle est montrée sur votre contrat, pas comparée.</li>
 <li><b>Toute rémunération</b> : Aloi n'en perçoit aucune.</li>
 </ul>
 
-<h2>8. Valeur de marché d'un bien immobilier</h2>
+<h2>12. Valeur de marché d'un bien immobilier</h2>
 <p>L'estimation indicative multiplie le prix médian au m² des ventes de la commune (24 derniers mois ou 5 ans, maisons ou appartements) par la surface du bien, avec la fourchette entre le premier et le troisième quartile. Avec 30 ventes ou plus, le chiffre est affiché ; de 10 à 29, il porte la mention « fiabilité faible » ; sous 10, Aloi passe à l'intercommunalité puis au département et le dit. Les cellules de moins de 5 ventes ne sont jamais publiées. Pour un immeuble, chaque lot est estimé à la médiane de sa typologie, puis les lots sont additionnés. Aucun rendement n'est calculé pour une résidence principale. Sources : demandes de valeurs foncières géolocalisées (Etalab, DGFiP), hors ventes en l'état futur d'achèvement, hors Alsace, Moselle et Mayotte ; loyers : estimations ANIL, à partir des données du Groupe SeLoger et de leboncoin.</p>
 
-<h2>9. Sources et mises à jour</h2>
-<p>Documents d'information clés et notices des contrats, annexes tarifaires, rapports SFCR des assureurs, taux servis publiés par les assureurs. Chaque donnée affiche dans l'app sa source, sa date de référence et sa date d'intégration. Une donnée de plus de douze mois est signalée comme datée. <a href="aloi-assistance.html#signaler">Signaler une donnée erronée</a>.</p>
+<p class="note">Ces classements sont publics, identiques pour tous et ne tiennent pas compte de votre situation, de vos objectifs ni de votre profil. Ils ne constituent pas un conseil en investissement ni un conseil en assurance. Aloi n'est rémunérée par aucun des établissements cités. Avant toute décision, informez-vous auprès d'un professionnel habilité (CIF, courtier).</p>
 
 <h2>Mentions légales</h2>
 <ul>
