@@ -1395,6 +1395,8 @@ TITLES_EN = {
     "essor-confidentialite.html": "Privacy — Essor", "essor-assistance.html": "Support — Essor",
     "essor-methode.html": "How the index works — Essor",
     "vespra-confidentialite.html": "Privacy — Vespra", "vespra-assistance.html": "Support — Vespra",
+    "ferralis-conditions.html": "Terms of use — Ferralis",
+    "ferralis-conditions-de-vente.html": "Purchase terms — Ferralis",
 }
 import re as _re
 (OUT / "en").mkdir(exist_ok=True)
