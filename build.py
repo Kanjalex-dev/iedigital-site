@@ -111,6 +111,8 @@ def nav_for(current: str, lang: str = "fr") -> str:
                     "essor-methode.html", "vespra-confidentialite.html", "vespra-assistance.html",
                     "vespra-privacy.html", "vespra-support.html"):
             continue
+        if slug.startswith("ferralis-conditions"):
+            continue
         # Les sous-pages d'une application allument l'entrée de l'application dans la navigation.
         actif = current
         if current.startswith("ferralis-"):
@@ -535,6 +537,12 @@ tribunal de commerce de Lille Métropole, à jour au 17 septembre 2026.</p>
 </section>
 
 <section>
+  <h2>Applications</h2>
+  <p>Les applications iOS d'IE DIGITAL sont distribuées par l'App Store, exploité dans l'Union européenne par Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irlande, qui vend et encaisse les achats intégrés.</p>
+  <p><b>Ferralis</b> : <a href="ferralis-conditions.html">conditions d'utilisation</a> · <a href="ferralis-conditions-de-vente.html">conditions des achats</a> · <a href="ferralis-confidentialite.html">politique de confidentialité</a> · <a href="ferralis-assistance.html">assistance</a>.</p>
+</section>
+
+<section>
   <h2>Propriété intellectuelle</h2>
   <p>L'ensemble des contenus de ce site — textes, structure, mise en forme — est la
   propriété d'IE DIGITAL, sauf mention contraire. Toute reproduction ou représentation,
@@ -581,7 +589,7 @@ séance après séance, d'après ce que tu déclares.</p>
 <section>
   <h2>En bref</h2>
   <dl class="facts">
-    <div><dt>Plateforme</dt><dd>iPhone, iOS 17 et plus. En préparation, pas encore publiée sur l'App Store.</dd></div>
+    <div><dt>Plateforme</dt><dd>iPhone (iOS 17 et plus) et Apple Watch, sur l'App Store.</dd></div>
     <div><dt>Compte</dt><dd>Aucun. Pas de serveur Ferralis, pas de publicité, pas de traceur.</dd></div>
     <div><dt>Données</dt><dd>Enregistrées sur l'iPhone. Export d'une sauvegarde à tout moment.</dd></div>
     <div><dt>Formules</dt><dd>Carnet du jour gratuit ; programme, progression automatique et historique avec l'abonnement.</dd></div>
@@ -593,6 +601,8 @@ séance après séance, d'après ce que tu déclares.</p>
   <h2>Aide et informations</h2>
   <ul>
     <li><a href="ferralis-assistance.html">Assistance et questions fréquentes</a></li>
+    <li><a href="ferralis-conditions.html">Conditions d'utilisation</a></li>
+    <li><a href="ferralis-conditions-de-vente.html">Conditions des achats</a></li>
     <li><a href="ferralis-confidentialite.html">Politique de confidentialité</a></li>
     <li><a href="mailto:contact@iedigital.fr?subject=Ferralis%20%E2%80%94%20assistance">Nous écrire : contact@iedigital.fr</a></li>
   </ul>
@@ -663,6 +673,8 @@ Réponse sous 3 jours ouvrés. Pour un problème, indique ce que tu faisais, ce 
 <section>
 <h2>Liens utiles</h2>
 <ul>
+<li><a href="ferralis-conditions.html">Conditions d'utilisation</a></li>
+<li><a href="ferralis-conditions-de-vente.html">Conditions des achats</a></li>
 <li><a href="ferralis-confidentialite.html">Politique de confidentialité</a></li>
 <li><a href="mentions-legales.html">Mentions légales</a> — IE DIGITAL, SARL, RCS Lille Métropole 822 744 116</li>
 </ul>
@@ -1323,6 +1335,14 @@ exec((OUT / "pages_aloi.py").read_text(encoding="utf-8"))
 _i = [s for s, _ in PAGES].index("methode.html")
 PAGES[_i:_i] = ALOI_PAGES
 BODIES.update(ALOI_BODIES)
+
+# --------------------------------------------------------------- Ferralis, juridique
+exec((OUT / "pages_ferralis.py").read_text(encoding="utf-8"))
+_i = [s for s, _ in PAGES].index("ferralis-assistance.html") + 1
+PAGES[_i:_i] = FERRALIS_PAGES
+BODIES.update(FERRALIS_BODIES)
+BODIES["ferralis-confidentialite.html"] = FERRALIS_CONFIDENTIALITE
+ALOI_TITRES.update(FERRALIS_TITRES)
 
 for slug, label in PAGES:
     body, desc = BODIES[slug]
